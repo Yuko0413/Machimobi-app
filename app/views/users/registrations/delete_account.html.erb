@@ -1,0 +1,6 @@
+<h2>アカウント削除の確認</h2>
+
+<p>本当にアカウントを削除しますか？この操作は取り消せません。</p>
+
+<%= button_to '削除する', destroy_account_path, method: :delete, data: { confirm: '本当にアカウントを削除してもよろしいですか？' } %>
+<%= link_to '戻る', edit_user_registration_path %>

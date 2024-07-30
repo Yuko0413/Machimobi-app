@@ -1,0 +1,28 @@
+<!-- app/views/care_contents/edit.html.erb -->
+<h2>編集</h2>
+
+<%= form_for(@care_content) do |f| %>
+  <div>
+    <%= f.label :preferred_name, "呼ばれ方" %>
+    <%= f.text_field :preferred_name %>
+  </div>
+  <div>
+    <%= f.label :phone_number, "緊急連絡先" %>
+    <%= f.text_field :phone_number %>
+  </div>
+  <div>
+    <%= f.label :custom_message, "伝えたいこと" %>
+    <%= f.text_area :custom_message %>
+  </div>
+  <div>
+    <%= f.label :message, "メッセージ" %>
+    <%= f.text_area :message %>
+  </div>
+  <div>
+    <%= f.submit "保存" %>
+  </div>
+<% end %>
+
+<%= link_to "ホーム", root_path %>
+<%= link_to "アカウント編集", edit_user_registration_path %>
+
