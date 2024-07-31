@@ -11,6 +11,7 @@ class User < ApplicationRecord
     user = where(provider: auth.provider, uid: auth.uid).first_or_initialize do |u|
       u.email = auth.info.email if u.email.blank?
       u.password = Devise.friendly_token[0, 20] if u.password.blank?
+      u.nickname = auth.info.name if u.nickname.blank?  # Googleから提供される名前をニックネームとして設定
     end
     user.save!(validate: false)
     user
@@ -21,6 +22,12 @@ class User < ApplicationRecord
   end
 
   validates :uid, presence: true, uniqueness: { scope: :provider }, if: -> { uid.present? }
+
+
+  def has_password?
+    encrypted_password.present?
+  end
+
 
   private
 

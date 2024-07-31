@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    passwords: 'public/passwords' # パスワード再設定用
   }
 
   devise_scope :user do

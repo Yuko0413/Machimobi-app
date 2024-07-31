@@ -1,7 +1,10 @@
-<h2>アカウント情報の編集</h2>
+<h2>アカウント編集</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="field">
+    <%= f.label :nickname, "ニックネーム" %><br />
+    <%= f.text_field :nickname, autofocus: true %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -9,17 +12,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :nickname, "ニックネーム" %><br />
-    <%= f.text_field :nickname %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %> <i>(パスワードを変更する場合のみ)</i><br />
+    <%= f.label :password %> <i>(変更する場合のみ)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %>
   </div>
 
   <div class="field">
@@ -28,17 +22,19 @@
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(変更を保存するには現在のパスワードを入力してください)</i><br />
+    <%= f.label :current_password %> <i>(現在のパスワード)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "更新" %>
+    <%= f.submit "更新", class: "btn btn-primary" %>
   </div>
 <% end %>
 
-<div class="actions">
-  <%= link_to 'キャンセルマイアカウント', delete_account_path %>
-</div>
+<%= link_to "アカウント削除", delete_account_path, method: :get, data: { confirm: "本当にアカウントを削除しますか？" }, class: "btn btn-danger" %>
+
+<% if resource && resource.has_password? && resource.provider != 'google_oauth2' %>
+  <%= link_to "パスワードを忘れた方はこちら", new_user_password_path, class: "btn btn-link" %>
+<% end %>
 
 <%= link_to 'ホームに戻る', root_path %>

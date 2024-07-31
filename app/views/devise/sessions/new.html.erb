@@ -1,12 +1,33 @@
-<!-- app/views/devise/sessions/new.html.erb -->
-<h2>ログイン</h2>
+<% if user_signed_in? %>
+  <script type="text/javascript">
+    window.location.href = "<%= root_path %>";
+  </script>
+<% else %>
+  <h2>アカウントをお持ちの方</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  <%= f.password_field :password, autocomplete: "current-password" %>
-  <%= f.submit "ログイン" %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "ログイン", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+
+  <%= button_to "Googleアカウントでログイン", user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn btn-primary" %>
+
+  <h2>アカウントをお持ちでない方</h2>
+  <%= button_to 'メールアドレスで登録', new_user_registration_path, method: :get, class: 'btn btn-secondary' %>
+  <%= button_to "Googleアカウントで登録", user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn btn-primary" %>
 <% end %>
 
-<%= button_to "Googleアカウントでログイン", user_google_oauth2_omniauth_authorize_path, method: :post %>
 
-<h2>アカウント登録</h2>
+<%= link_to "パスワードを忘れた方はこちら", new_user_password_path, class: "btn btn-link" %>

@@ -1,10 +1,11 @@
-<h2>Sign up</h2>
+<h2>アカウント登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div>
-    <%= f.label :nickname, "ニックネーム" %>
+    <p>最初に呼んでほしいお名前を入力ください</p>
+    <%= f.label :nickname, "呼ばれ方" %>
     <%= f.text_field :nickname, autofocus: true, value: session["devise.google_data"]&.dig("info", "name") || f.object.nickname %>
   </div>
 
@@ -31,4 +32,7 @@
   </div>
 <% end %>
 
+<%= button_to "Googleアカウントで登録", user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn btn-primary" %>
+
+<h3>すでにアカウントをお持ちの方</h3>
 <%= render "devise/shared/links" %>
