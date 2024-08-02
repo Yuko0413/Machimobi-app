@@ -79,8 +79,15 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+# production:
+#   <<: *default
+#   database: machimobi_app_production
+#   username: machimobi_app
+#   password: <%= ENV['MACHIMOBI_APP_DATABASE_PASSWORD'] %>
 production:
   <<: *default
-  database: machimobi_app_production
-  username: machimobi_app
-  password: <%= ENV['MACHIMOBI_APP_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  url: <%= ENV['DATABASE_URL'] %>
+
