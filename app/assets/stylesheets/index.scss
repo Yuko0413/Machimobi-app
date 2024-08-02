@@ -1,230 +1,200 @@
 body {
-    margin: 0;
-    line-height: normal;
-    background-color: #ffffff; /* トップページの背景 */
-  }
-  
-  :root {
-    /* fonts */
-    --font-noto-sans-jp: "Noto Sans JP";
-  
-    /* font sizes */
-    --font-size-base: 16px;
-    --font-size-xl: 20px;
-  
-    /* Colors */
-    --color-gainsboro: #d9d9d9;
-    --color-black: #000;
-    --color-pink-light: #e5b2b2;
-    --color-turquoise-medium: #33CCCC;
-    --color-pink-dark: #e57f7f;
-    --color-turquoise-dark: #00CCCC;
-    --color-turquoise-light: #66CCCC;
-    --color-pink-medium: #e59999;
-  
-    /* Gaps */
-    --gap-3xs: 10px;
-    --gap-9xs: 4px;
-  
-    /* Border radiuses */
-    --br-6xl: 25px;
-  }
-  
-  .header {
-    background-color: #33CCCC; /* ヘッダー */
-    padding: 0px;
-    text-align: right;
-  }
-  
-  .icon-account-circle {
-    height: 50px;
-    width: 50px;
-    cursor: pointer;
-  }
-  
-  .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 5px 0 0;
-    background-color: #ffffff;
-  }
-  
-  .qr-code-container {
-    margin: 20px 0;
-    text-align: center;
-  }
+  margin: 0;
+  line-height: normal;
+  background-color: #ffffff; /* トップページの背景 */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* ビューポートの高さに合わせる */
+}
 
-  .qr-code {
-    width: 150px;
-  }
-  
-  .details {
-    flex: 1;
-    border-radius: var(--br-6xl);
-    background-color: #DCDCDC;
-    align-items: flex-end;
-    padding: 40px 45px 49px;
-    gap: 17px;
-  }
+:root {
+  /* fonts */
+  --font-noto-sans-jp: "Noto Sans JP";
 
-  .text {
-    color: #333333;
-  }
-  
-  .footer {
-    background-color: #33CCCC; /* フッター */
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .btn-primary {
-    background-color: #33CCCC; /* ターコイズ系の濃い色 */
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-  }
-  
-  .btn-secondary {
-    background-color: #00CCCC; /* ピンク系の濃い色 */
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-  }
+  /* font sizes */
+  --font-size-base: 16px;
+  --font-size-xl: 20px;
 
-  .footer-content {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  
-  .footer-icon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: black;
-  }
-  
-  .footer-icon-img {
-    width: 20px;
-    height: 20px;
-  }
+  /* Colors */
+  --color-gainsboro: #d9d9d9;
+  --color-black: #000;
+  --color-pink-light: #e5b2b2;
+  --color-turquoise-medium: #33CCCC;
+  --color-pink-dark: #e57f7f;
+  --color-turquoise-dark: #00CCCC;
+  --color-turquoise-light: #66CCCC;
+  --color-pink-medium: #e59999;
 
-  .footer-icon.qr-code-link .footer-icon-img {
-    width: 24px; /* QRコードアイコンのサイズを現状維持 */
-    height: 24px; /* QRコードアイコンのサイズを現状維持 */
-  }
-  
-  .footer-icon.qr-code-link {
-    background-color: #e57f7f; /* 赤丸の背景色 */
-    border-radius: 50%;
-    padding: 10px;
-  }
+  /* Gaps */
+  --gap-3xs: 10px;
+  --gap-9xs: 4px;
 
-  .footer-icon span {
-    font-size: 50%; /* 文字サイズを半分に */
-  }
+  /* Border radiuses */
+  --br-6xl: 25px;
+}
 
-  .delet_button {
-    display: flex;
-    justify-content: center;
-    gap: 10px; /* ボタン間の間隔を調整 */
-    margin-top: 20px; /* 必要に応じて上部のマージンを調整 */
-  }
-  
-  .delet_button .btn-secondary {
-    background-color: #6c757d; /* ボタンの背景色を調整 */
-    color: white; /* ボタンの文字色を調整 */
-    border: none; /* ボーダーをなくす */
-    padding: 10px 20px; /* パディングを調整 */
-    text-decoration: none; /* テキストの下線をなくす */
-    border-radius: 5px; /* 角を丸める */
-  }
-  
-  .delet_button a {
-    display: inline-block;
-    background-color: #007bff; /* リンクボタンの背景色を調整 */
-    color: white; /* リンクボタンの文字色を調整 */
-    padding: 10px 20px; /* パディングを調整 */
-    text-decoration: none; /* テキストの下線をなくす */
-    border-radius: 5px; /* 角を丸める */
-  }
+.header {
+  background-color: #33CCCC; /* ヘッダー */
+  padding: 0px;
+  text-align: right;
+}
 
-  .btn-emergency {
-    position: relative;
-    display: block;
-    border-radius: 50px;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    background: #f75065;
-    padding: 5px 0;
-    margin: auto;
-    max-width: 250px;
-  }
+.icon-account-circle {
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+}
 
-  .btn-danger {
-    background-color: #f75065; /* ターコイズ系の濃い色 */
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin: 10px;
-  }
+main {
+  flex: 1; /* メインコンテンツの高さを調整 */
+  overflow-y: auto; /* 垂直方向のスクロールを可能に */
+  padding: 5px 0 0;
+  background-color: #ffffff;
+}
 
-  
-  .qr-checkbox {
-    margin-left: 10px;
-  }
-  
-  .qr-info {
-    display: none;
-  }
-  
-  .qr-info.show {
-    display: block;
-    transition: opacity 0.4s ease;
-  }
-  
-  
-  
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5px 0 0;
+  background-color: #ffffff;
+}
 
-//   /* モーダルのスタイル */
-// .modal {
-//   display: none; /* モーダルはデフォルトでは表示されない */
-//   position: fixed; /* 固定表示 */
-//   z-index: 1; /* 一番前面に表示 */
-//   left: 0;
-//   top: 0;
-//   width: 100%;
-//   height: 100%;
-//   overflow: auto;
-//   background-color: rgb(0,0,0); /* 背景色 */
-//   background-color: rgba(0,0,0,0.4); /* 透明度 */
-// }
+.qr-code-container {
+  margin: 20px 0;
+  text-align: center;
+}
 
-// .modal-content {
-//   background-color: #fefefe;
-//   margin: 15% auto;
-//   padding: 20px;
-//   border: 1px solid #888;
-//   width: 80%;
-// }
+.qr-code {
+  width: 150px;
+}
 
-// .close {
-//   color: #aaa;
-//   float: right;
-//   font-size: 28px;
-//   font-weight: bold;
-// }
+.details {
+  flex: 1;
+  border-radius: var(--br-6xl);
+  background-color: #DCDCDC;
+  align-items: flex-end;
+  padding: 40px 45px 49px;
+  gap: 17px;
+}
 
-// .close:hover,
-// .close:focus {
-//   color: black;
-//   text-decoration: none;
-//   cursor: pointer;
-// }
+.text {
+  color: #333333;
+}
+
+.footer {
+  background-color: #33CCCC; /* フッター */
+  padding: 10px;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #33CCCC; /* ターコイズ系の濃い色 */
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn-secondary {
+  background-color: #00CCCC; /* ピンク系の濃い色 */
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+
+.footer-icon-img {
+  width: 20px;
+  height: 20px;
+}
+
+.footer-icon.qr-code-link .footer-icon-img {
+  width: 24px; /* QRコードアイコンのサイズを現状維持 */
+  height: 24px; /* QRコードアイコンのサイズを現状維持 */
+}
+
+.footer-icon.qr-code-link {
+  background-color: #e57f7f; /* 赤丸の背景色 */
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.footer-icon span {
+  font-size: 50%; /* 文字サイズを半分に */
+}
+
+.delet_button {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* ボタン間の間隔を調整 */
+  margin-top: 20px; /* 必要に応じて上部のマージンを調整 */
+}
+
+.delet_button .btn-secondary {
+  background-color: #6c757d; /* ボタンの背景色を調整 */
+  color: white; /* ボタンの文字色を調整 */
+  border: none; /* ボーダーをなくす */
+  padding: 10px 20px; /* パディングを調整 */
+  text-decoration: none; /* テキストの下線をなくす */
+  border-radius: 5px; /* 角を丸める */
+}
+
+.delet_button a {
+  display: inline-block;
+  background-color: #007bff; /* リンクボタンの背景色を調整 */
+  color: white; /* リンクボタンの文字色を調整 */
+  padding: 10px 20px; /* パディングを調整 */
+  text-decoration: none; /* テキストの下線をなくす */
+  border-radius: 5px; /* 角を丸める */
+}
+
+.btn-emergency {
+  position: relative;
+  display: block;
+  border-radius: 50px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  background: #f75065;
+  padding: 5px 0;
+  margin: auto;
+  max-width: 250px;
+}
+
+.btn-danger {
+  background-color: #f75065; /* ターコイズ系の濃い色 */
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.qr-checkbox {
+  margin-left: 10px;
+}
+
+.qr-info {
+  display: none;
+}
+
+.qr-info.show {
+  display: block;
+  transition: opacity 0.4s ease;
+}

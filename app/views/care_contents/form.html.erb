@@ -32,3 +32,22 @@
 
   <%= link_to 'ホームに戻る', root_path, class: "btn btn-secondary" %>
 </div>
+
+<div class="footer">
+  <div class="footer-content">
+    <%= link_to root_path, class: "footer-icon" do %>
+      <%= image_tag 'home-icon.svg', alt: 'ホーム', class: 'footer-icon-img' %>
+      <span>ホーム</span>
+    <% end %>
+    <%= link_to "#", id: "showQrModalLink", class: "footer-icon qr-code-link" do %>
+      <%= image_tag 'qr-icon.svg', alt: 'QR表示', class: 'footer-icon-img' %>
+      <span>QR表示</span>
+    <% end %>
+    <% if @care_content.present? %>
+      <%= link_to edit_care_content_path(@care_content), class: "footer-icon" do %>
+        <%= image_tag 'edit-icon.svg', alt: '編集', class: 'footer-icon-img' %>
+        <span>編集</span>
+      <% end %>
+    <% end %>
+  </div>
+</div>
