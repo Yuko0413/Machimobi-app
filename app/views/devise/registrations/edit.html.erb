@@ -34,7 +34,7 @@
     </div>
   <% end %>
 
-  <%= link_to "アカウント削除", delete_account_path, method: :get, data: { confirm: "本当にアカウントを削除しますか？" }, class: "btn btn-danger" %>
+  <%= link_to "アカウント削除", delete_account_path, method: :get, class: "btn btn-danger" %>
 
   <% if resource && resource.has_password? && resource.provider != 'google_oauth2' %>
     <%= link_to "パスワードを忘れた方はこちら", new_user_password_path, class: "btn btn-link" %>

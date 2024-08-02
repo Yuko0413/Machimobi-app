@@ -1,29 +1,34 @@
-<h1>ケア内容の<%= @care_content.persisted? ? "編集" : "登録" %></h1>
+<div class="header">
+  <%= link_to image_tag('profile-circle.svg', class: 'icon-account-circle', alt: ''), edit_user_registration_path %>
+</div>
+<div class="content">
+  <h1>ケア内容の<%= @care_content.persisted? ? "編集" : "登録" %></h1>
 
-<%= form_with(model: @care_content, local: true) do |f| %>
-  <div class="field">
-    <%= f.label :preferred_name, "呼ばれ方" %>
-    <%= f.text_field :preferred_name %>
-  </div>
+  <%= form_with(model: @care_content, local: true) do |f| %>
+    <div class="field">
+      <%= f.label :preferred_name, "呼ばれ方" %>
+      <%= f.text_field :preferred_name %>
+    </div>
 
-  <div class="field">
-    <%= f.label :phone_number, "緊急連絡先" %>
-    <%= f.text_field :phone_number %>
-  </div>
+    <div class="field">
+      <%= f.label :phone_number, "緊急連絡先" %>
+      <%= f.text_field :phone_number %>
+    </div>
 
-  <div class="field">
-    <%= f.label :custom_message, "伝えたいこと" %>
-    <%= f.text_area :custom_message %>
-  </div>
+    <div class="field">
+      <%= f.label :custom_message, "伝えたいこと" %>
+      <%= f.text_area :custom_message %>
+    </div>
 
-  <div class="field">
-    <%= f.label :message, "メッセージ" %>
-    <%= f.text_area :message %>
-  </div>
+    <div class="field">
+      <%= f.label :message, "メッセージ" %>
+      <%= f.text_area :message %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit @care_content.persisted? ? "更新" : "登録" %>
-  </div>
-<% end %>
+    <div class="actions">
+      <%= f.submit @care_content.persisted? ? "更新" : "登録", class: "btn btn-secondary" %>
+    </div>
+  <% end %>
 
-<%= link_to 'ホームに戻る', root_path %>
+  <%= link_to 'ホームに戻る', root_path, class: "btn btn-secondary" %>
+</div>

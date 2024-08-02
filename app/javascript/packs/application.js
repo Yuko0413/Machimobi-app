@@ -11,3 +11,36 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+document.addEventListener('turbolinks:load', () => {
+    const showModalButton = document.getElementById('showQrModal');
+    const showModalLink = document.getElementById('showQrModalLink');
+    const modal = document.getElementById('qrModal');
+    const closeModal = document.getElementsByClassName('close')[0];
+  
+    if (showModalButton) {
+      showModalButton.onclick = function() {
+        modal.style.display = 'block';
+      };
+    }
+  
+    if (showModalLink) {
+      showModalLink.onclick = function(event) {
+        event.preventDefault();
+        modal.style.display = 'block';
+      };
+    }
+  
+    if (closeModal) {
+      closeModal.onclick = function() {
+        modal.style.display = 'none';
+      };
+    }
+  
+    window.onclick = function(event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    };
+  });
+  
