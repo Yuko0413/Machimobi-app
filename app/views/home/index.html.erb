@@ -1,11 +1,10 @@
 <header>
   <nav>
-    <%= link_to 'アカウント', edit_user_registration_path, class: "btn btn-primary" %>
   </nav>
 </header>
 
 <div class="content">
-  <p class="want_message">私が手伝ってほしいこと</p>
+  <p class="want_message"><strong>私が手伝ってほしいこと</strong></p>
 
   <div class="qr-code-wrapper">
     <div class="qr-code-container">
@@ -22,7 +21,7 @@
     </div>
   </div>
   <div class="thank-you-message">
-    <p>お気遣いいただきありがとうございます</p>
+    <p><strong>お気遣いいただきありがとうございます</strong></p>
   </div>
 </div>
 
@@ -33,10 +32,17 @@
   <% if @care_content.present? %>
     <div class="text">
       <p class="disclosure-info"><strong>開示している情報</strong></p>
-      <p>呼ばれ方: <%= @care_content.preferred_name %></p>
-      <p>緊急連絡先: <%= @care_content.phone_number %></p>
-      <p>伝えたいこと: <%= @care_content.custom_message %></p>
-      <p>メッセージ: <%= @care_content.message %></p>
+      <div class="info-items">
+        <% if @care_content.preferred_name.present? %>
+          <p class="highlighted">呼ばれ方</p>
+        <% end %>
+        <% if @care_content.phone_number.present? %>
+          <p class="highlighted">緊急連絡先</p>
+        <% end %>
+        <% if @care_content.custom_message.present? %>
+          <p class="highlighted">伝えたいこと</p>
+        <% end %>
+      </div> 
     </div>
   <% else %>
     <p>ケア内容が登録されていません。</p>
@@ -44,7 +50,13 @@
 </div>
 
 <div class="footer">
-  <%= link_to 'ホーム', root_path, class: "btn btn-primary" %>
-  <%= link_to "QRコードを表示する", qr_code_path(@qr_code), class: "btn btn-secondary" %>
-  <%= link_to '編集する', edit_care_content_path(@care_content), class: "btn btn-primary" %>
+  <%= link_to edit_user_registration_path, class: "btn btn-primary icon-link" do %>
+    <img src="<%= asset_path('account.svg') %>" alt="Profile Icon" class="icon">
+    <span>アカウント設定</span>
+  <% end %>
+  <%= link_to edit_care_content_path(@care_content), class: "btn btn-primary icon-link" do %>
+    <img src="<%= asset_path('pen.svg') %>" alt="Edit Icon" class="icon">
+    <span>ケア情報を編集する</span>
+  <% end %>
 </div>
+
