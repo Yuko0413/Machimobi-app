@@ -4,30 +4,44 @@
   </nav>
 </header>
 
-<h1>ホーム画面</h1>
+<div class="content">
+  <p class="want_message">私が手伝ってほしいこと</p>
 
+  <div class="qr-code-wrapper">
+    <div class="qr-code-container">
+      <% if @qr_code.present? %>
+        <%= image_tag qr_code_path(@qr_code, format: :png), class: 'qr-code' %>
+      <% else %>
+        <p>QRコードが登録されていません。</p>
+      <% end %>
+      <span>読み込んでください</span>
+    </div>
+    <div class="qr-code-message">
+      <p>➀左の<span class="highlight">QRコード</span>を読み込む</p>
+      <p>➁お手伝いをお願いします</p>
+    </div>
+  </div>
+  <div class="thank-you-message">
+    <p>お気遣いいただきありがとうございます</p>
+  </div>
+</div>
 
-
-<% if @qr_code.present? %>
-  <!--<p>QRコード:</p>-->
-  <%= image_tag qr_code_path(@qr_code, format: :png) %>
-<% else %>
-  <p>QRコードが登録されていません。</p>
-<% end %>
-
-<% if @care_content.present? %>
-  <p>呼ばれ方: <%= @care_content.preferred_name %></p>
-  <p>緊急連絡先: <%= @care_content.phone_number %></p>
-  <p>伝えたいこと: <%= @care_content.custom_message %></p>
-  <p>メッセージ: <%= @care_content.message %></p>
-
-  <!--<%= link_to "ケア内容を編集する", edit_care_content_path(@care_content), class: "btn btn-primary" %>-->
-<% else %>
-  <p>ケア内容が登録されていません。</p>
-  <<%= link_to "ケア内容を登録する", new_care_content_path, class: "btn btn-primary" %>
-<% end %>
-
-
+<div class="details">
+  <div class="top-message">
+    <p>↑の部分をお相手に見せてください</p>
+  </div>
+  <% if @care_content.present? %>
+    <div class="text">
+      <p class="disclosure-info"><strong>開示している情報</strong></p>
+      <p>呼ばれ方: <%= @care_content.preferred_name %></p>
+      <p>緊急連絡先: <%= @care_content.phone_number %></p>
+      <p>伝えたいこと: <%= @care_content.custom_message %></p>
+      <p>メッセージ: <%= @care_content.message %></p>
+    </div>
+  <% else %>
+    <p>ケア内容が登録されていません。</p>
+  <% end %>
+</div>
 
 <div class="footer">
   <%= link_to 'ホーム', root_path, class: "btn btn-primary" %>

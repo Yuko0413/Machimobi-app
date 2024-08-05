@@ -1,3 +1,134 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+/* home.scss */
+
+/* Reset some basic elements */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #ffffff;
+  }
+  
+  /*header {
+    background-color: #33CCCC;
+    padding: 10px;
+    text-align: right;
+  }*/
+  
+  .header .btn {
+    color: white;
+  }
+  
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #DBA3A3;
+    transform: rotate(180deg); /* 180度回転 */
+  }
+  
+  .want_message {
+    color: #DBA3A3;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .qr-code-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .qr-code-container {
+    margin: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2vw;
+    background-color: #ffffff;
+    padding: 10px;  /* 余白を追加 */
+    border-radius: 10px; /* 角を丸くする */
+  }
+
+  
+  .qr-code {
+    width: 90px;
+  }
+  
+  .qr-code-message {
+    margin-left: 5px;
+    color: #333;
+    font-size: 3vw;
+    line-height: 3; /* 行間を100%に設定 */
+  }
+
+  .qr-code-message .highlight {
+    color: #fff; /* 文字を白に設定 */
+  }
+
+  .thank-you-message {
+    text-align: center;
+    margin-top: 10px; /* 上に余白を追加 */
+    color: #fff;
+  }
+  
+  .details {
+    margin: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    background-color: #ffffff;
+    line-height: 5vh; /* 行間を10pxに設定 */
+  }
+
+  .top-message p {
+    color: #3DFD2C; /* テキストの色を緑に設定 */
+    text-shadow: 1px 1px 2px #000000; /* テキストシャドウを追加 */
+  }
+  
+  .text p {
+    margin: 5px 0;
+  }
+
+  .disclosure-info {
+    color: #FF5733; /* 変更したい色を設定 */
+  }
+  
+  
+  .footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #33CCCC;
+    padding: 10px;
+  }
+  
+  .footer .btn {
+    color: white;
+  }
+  
+  @media (max-width: 600px) {
+    .details {
+      width: 95%;
+    }
+  }
+  

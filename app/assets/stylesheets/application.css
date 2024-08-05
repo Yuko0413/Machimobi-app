@@ -1,3 +1,10 @@
+/*
+ *= require_tree .
+ *= require_self
+ *= require home
+ */
+
+
 .footer {
     position: fixed;
     bottom: 0;
