@@ -1,9 +1,11 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[google_oauth2]
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[google_oauth2 line]
 
   has_one :qr_code, dependent: :destroy
   has_one :care_content, dependent: :destroy
+
+  before_validation :set_default_line_user_id, on: :create
 
   after_create :generate_qr_code_and_care_content
 
@@ -12,6 +14,7 @@ class User < ApplicationRecord
       u.email = auth.info.email if u.email.blank?
       u.password = Devise.friendly_token[0, 20] if u.password.blank?
       u.nickname = auth.info.name if u.nickname.blank?  # Googleから提供される名前をニックネームとして設定
+      u.line_user_id ||= SecureRandom.uuid  # line_user_id が空の場合は一意の値を生成
     end
     user.save!(validate: false)
     user
@@ -23,13 +26,16 @@ class User < ApplicationRecord
 
   validates :uid, presence: true, uniqueness: { scope: :provider }, if: -> { uid.present? }
 
-
+  # 新規追加: has_password? メソッド
   def has_password?
     encrypted_password.present?
   end
 
-
   private
+
+  def set_default_line_user_id
+    self.line_user_id ||= SecureRandom.uuid
+  end
 
   def generate_qr_code_and_care_content
     Rails.logger.debug "Generating care content and QR code for user #{self.id}"
@@ -60,4 +66,3 @@ class User < ApplicationRecord
     end
   end
 end
-

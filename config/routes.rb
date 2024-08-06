@@ -16,4 +16,8 @@ Rails.application.routes.draw do
   resources :qr_codes, only: [:show, :index]
 
   get 'qr_codes/:id/scan', to: 'qr_codes#scan', as: 'scan_qr_code'
+
+  # LINEログインのルートを追加
+  get 'line_login_api/login', to: 'line_login_api#login'
+  get 'line_login_api/callback', to: 'line_login_api#callback'
 end

@@ -312,7 +312,11 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
 
   config.omniauth :google_oauth2, Rails.application.credentials.google[:client_id], Rails.application.credentials.google[:client_secret], skip_jwt: true
-
+  config.omniauth :line, Rails.application.credentials.line[:channel_id], Rails.application.credentials.line[:channel_secret]
+    #scope: 'profile openid',
+    #callback_path: "/users/auth/line/callback"
+    #redirect_uri: 'http://localhost:3000/line_login_api/callback'
+  #}
   #config.omniauth :google_oauth2, Rails.application.credentials.dig(:google, :client_id), Rails.application.credentials.dig(:google, :client_secret)
 
   

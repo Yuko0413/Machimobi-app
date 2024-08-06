@@ -23,10 +23,14 @@
 
 
   <%= button_to "Googleアカウントでログイン", user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn btn-primary" %>
+  <%= link_to "LINEアカウントでログイン", line_login_api_login_path, class: "btn btn-success" %>
+
 
   <h2>アカウントをお持ちでない方</h2>
   <%= button_to 'メールアドレスで登録', new_user_registration_path, method: :get, class: 'btn btn-secondary' %>
   <%= button_to "Googleアカウントで登録", user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn btn-primary" %>
+  <%= link_to "LINEアカウントで登録", line_login_api_login_path, class: "btn btn-success" %>
+
 <% end %>
 
 
