@@ -1,5 +1,5 @@
 <div class="header">
-  <%= link_to image_tag('profile-circle.svg', class: 'icon-account-circle', alt: ''), edit_user_registration_path %>
+  <%= link_to image_tag('account.svg', class: 'icon-account-circle', alt: ''), edit_user_registration_path %>
 </div>
 <div class="content">
   <h1>ケア内容の<%= @care_content.persisted? ? "編集" : "登録" %></h1>
@@ -26,7 +26,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit @care_content.persisted? ? "更新" : "登録", class: "btn btn-secondary" %>
+      <%= f.submit @care_content.persisted? ? "更新" : "登録", class: "btn btn-update" %>
     </div>
   <% end %>
 

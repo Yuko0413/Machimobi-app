@@ -1,8 +1,9 @@
 <div class="header">
-  <%= link_to image_tag('profile-circle.svg', class: 'icon-account-circle', alt: ''), edit_user_registration_path %>
+  <%= link_to image_tag('account.svg', class: 'icon-account-circle', alt: ''), edit_user_registration_path %>
 </div>
-<div class="content">
-  <h2>アカウント編集</h2>
+<div class="setting-content">
+  <h2>設定</h2>
+  <!--
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <div class="field">
       <%= f.label :nickname, "ニックネーム" %><br />
@@ -30,15 +31,21 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "更新", class: "btn btn-primary" %>
+      <%= f.submit "更新", class: "btn btn-update" %>
     </div>
-  <% end %>
+  <% end %>-->
+  <div class="accout-content">
+    <div class="re_pass">
+      <p>パスワード再設定</p>
+      <%= button_to "メールを送る", new_user_password_path, method: :get, class: "btn btn-primary" %>
+    </div>
 
-  <%= link_to "アカウント削除", delete_account_path, method: :get, class: "btn btn-danger" %>
+    <div class="delet-accout">
+      <p>退会</p>
+      <%= button_to "アカウント削除", delete_account_path, method: :get, class: "btn btn-account-danger" %>
+    </div>
 
-  <% if resource && resource.has_password? && resource.provider != 'google_oauth2' %>
-    <%= link_to "パスワードを忘れた方はこちら", new_user_password_path, class: "btn btn-link" %>
-  <% end %>
+  </div>
+  <%= link_to 'ホームに戻る', root_path, class: "btn btn-secondary home-link" %>
 
-  <%= link_to 'ホームに戻る', root_path, class: "btn btn-secondary" %>
 </div>

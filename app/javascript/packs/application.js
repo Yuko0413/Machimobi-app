@@ -20,6 +20,7 @@ document.addEventListener('turbolinks:load', () => {
   
     if (showModalButton) {
       showModalButton.onclick = function() {
+        modal.classList.add('rotate-180'); // 回転クラスを追加
         modal.style.display = 'block';
       };
     }
@@ -27,6 +28,7 @@ document.addEventListener('turbolinks:load', () => {
     if (showModalLink) {
       showModalLink.onclick = function(event) {
         event.preventDefault();
+        modal.classList.add('rotate-180'); // 回転クラスを追加
         modal.style.display = 'block';
       };
     }
@@ -34,12 +36,14 @@ document.addEventListener('turbolinks:load', () => {
     if (closeModal) {
       closeModal.onclick = function() {
         modal.style.display = 'none';
+        modal.classList.remove('rotate-180'); // 回転クラスを削除
       };
     }
   
     window.onclick = function(event) {
       if (event.target === modal) {
         modal.style.display = 'none';
+        modal.classList.remove('rotate-180'); // 回転クラスを削除
       }
     };
   });

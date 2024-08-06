@@ -20,7 +20,7 @@ body {
   --color-black: #000;
   --color-pink-light: #e5b2b2;
   --color-turquoise-medium: #33CCCC;
-  --color-pink-dark: #e57f7f;
+  --color-pink-dark: #f75065;
   --color-turquoise-dark: #00CCCC;
   --color-turquoise-light: #66CCCC;
   --color-pink-medium: #e59999;
@@ -40,9 +40,14 @@ body {
 }
 
 .icon-account-circle {
-  height: 50px;
-  width: 50px;
+  height: 30px;
+  width: 30px;
   cursor: pointer;
+  border: 2px solid #ffffff; /* 枠の色と太さ */
+  border-radius: 50%; /* 丸い枠にする場合 */
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
 }
 
 main {
@@ -61,6 +66,46 @@ main {
   background-color: #ffffff;
 }
 
+.setting-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* align-items: center を flex-start に変更 */
+  justify-content: flex-start;
+  padding: 5px 0 0;
+  background-color: #ffffff;
+  padding-left: 25%; /* 必要に応じて左側のパディングを追加 */
+  padding-top: 10%;
+}
+
+.btn-account-danger {
+  background-color: #f75065; /* ターコイズ系の濃い色 */
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+
+}
+
+.accout-content {
+
+}
+
+.re_pass, .delet-account {
+
+}
+
+.re_pass p, .delet-account p {
+
+}
+
+.btn-primary, .btn-danger {
+
+}
+
+
+
+
+
 .qr-code-container {
   margin: 20px 0;
   text-align: center;
@@ -73,7 +118,7 @@ main {
 .details {
   flex: 1;
   border-radius: var(--br-6xl);
-  background-color: #DCDCDC;
+  background-color: #f8f9fa;
   align-items: flex-end;
   padding: 40px 45px 49px;
   gap: 17px;
@@ -106,6 +151,31 @@ main {
   border-radius: 5px;
 }
 
+.btn-update {
+  background-color: #33CCCC; /* ターコイズ系の色 */
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.actions {
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center; /* 水平方向に中央揃え */
+  align-items: center; /* 垂直方向に中央揃え */
+  padding: 10px 20px;
+}
+
+.btn-update:hover {
+  background-color: #28a3a3; /* ホバー時の背景色 */
+}
+
 .footer-content {
   display: flex;
   justify-content: space-around;
@@ -131,7 +201,7 @@ main {
 }
 
 .footer-icon.qr-code-link {
-  background-color: #e57f7f; /* 赤丸の背景色 */
+  background-color: #f75065; /* 赤丸の背景色 */
   border-radius: 50%;
   padding: 10px;
 }
@@ -148,7 +218,7 @@ main {
 }
 
 .delet_button .btn-secondary {
-  background-color: #6c757d; /* ボタンの背景色を調整 */
+  background-color: #f8f9fa; /* ボタンの背景色を調整 */
   color: white; /* ボタンの文字色を調整 */
   border: none; /* ボーダーをなくす */
   padding: 10px 20px; /* パディングを調整 */

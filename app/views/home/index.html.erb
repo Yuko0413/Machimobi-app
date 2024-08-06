@@ -1,5 +1,5 @@
 <div class="header">
-  <%= link_to image_tag('profile-circle.svg', class: 'icon-account-circle', alt: ''), edit_user_registration_path %>
+  <%= link_to image_tag('account.svg', class: 'icon-account-circle', alt: ''), edit_user_registration_path %>
 </div>
 <div class="content">
   <div class="qr-code-container">
@@ -44,19 +44,24 @@
 <div id="qrModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
-    <h2>QRコード表示</h2>
-    <p>以下のQRコードを相手に見せてください。</p>
+    <!--<h2>QRコード表示</h2>-->
+    <p class="qr-message"><strong>QRコードを読み込んでください</strong></p>
     <div class="qr-code-container">
       <%= image_tag qr_code_path(@qr_code, format: :png), class: 'qr-code' %>
     </div>
-    <% if @care_content.present? %>
-      <h2>ケア内容</h2>
-      <p><strong>呼ばれ方:</strong> <%= @care_content.preferred_name %></p>
-      <p><strong>緊急連絡先:</strong> <%= @care_content.phone_number %></p>
-      <p><strong>伝えたいこと:</strong> <%= @care_content.custom_message %></p>
-      <p><strong>メッセージ:</strong> <%= @care_content.message %></p>
-    <% else %>
-      <p>ケア内容が登録されていません。</p>
-    <% end %>
+    <div>
+      <p>➀上のQRコードを読み込んでください</p>
+      <p>➁お手伝いをお願いします</p>
+      <p class="thanks-message"><strong>ご配慮いただきありがとうございます<strong></p>
+    </div>
+      <!--<% if @care_content.present? %>
+        <h2>ケア内容</h2>
+        <p><strong>呼ばれ方:</strong> <%= @care_content.preferred_name %></p>
+        <p><strong>緊急連絡先:</strong> <%= @care_content.phone_number %></p>
+        <p><strong>伝えたいこと:</strong> <%= @care_content.custom_message %></p>
+        <p><strong>メッセージ:</strong> <%= @care_content.message %></p>
+      <% else %>
+        <p>ケア内容が登録されていません。</p>
+      <% end %>-->
   </div>
 </div>

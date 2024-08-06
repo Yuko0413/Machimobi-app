@@ -15,14 +15,27 @@
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
   padding-top: 60px;
+  justify-content: center; /* 水平中央揃え */
+  align-items: center; /* 垂直中央揃え */
 }
 
 .modal-content {
-  background-color: #fefefe;
+  background-color: #E4B8B8;
   margin: 5% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  position: relative;
+  top: 40%;
+  transform: translateY(-25%);
+}
+
+.qr-message {
+  color:#ffffff
+}
+
+.thanks-message {
+ color: #ffffff
 }
 
 .close {
@@ -37,6 +50,11 @@
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+/* 180度回転のスタイル */
+.rotate-180 {
+  transform: rotate(180deg);
 }
 
 /* 他のスタイル */
