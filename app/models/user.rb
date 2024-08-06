@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  before_validation :set_default_line_user_id, if: -> { line_user_id.nil? }
+
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[google_oauth2]
 
