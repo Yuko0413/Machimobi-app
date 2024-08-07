@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  before_validation :set_default_line_user_id, if: -> { line_user_id.nil? }
+  #before_validation :set_default_line_user_id, if: -> { line_user_id.nil? }
 
 
   devise :database_authenticatable, :registerable,
