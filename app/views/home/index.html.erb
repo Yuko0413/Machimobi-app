@@ -1,67 +1,45 @@
-<div class="header">
-  <%= link_to image_tag('account.svg', class: 'icon-account-circle', alt: ''), edit_user_registration_path %>
-</div>
 <div class="content">
-  <div class="qr-code-container">
-    <%= image_tag qr_code_path(@qr_code, format: :png), class: 'qr-code' %>
-  </div>
-  <div class="details">
-    <% if @care_content.present? %>
-      <div class="text">
-        <p>呼ばれ方: <%= @care_content.preferred_name %></p>
-        <p>緊急連絡先: <%= @care_content.phone_number %></p>
-        <p>伝えたいこと: <%= @care_content.custom_message %></p>
-        <p>メッセージ: <%= @care_content.message %></p>
-      </div>
-      <div class="emergency-contact">
-        <%= link_to "緊急連絡先に電話", "tel:#{@care_content.phone_number}", class: "btn-emergency" %>
-      </div>
-    <% else %>
-      <p>ケア内容が登録されていません。</p>
+  <% if @care_content.present? %>
+    <% if @care_content.preferred_name.present? %>
+      <p class="highlighted"><strong>私の名前は、<br> <%= @care_content.preferred_name %> です</strong></p>
     <% end %>
-  </div>
-</div>
-<div class="footer">
-  <div class="footer-content">
-    <%= link_to root_path, class: "footer-icon" do %>
-      <%= image_tag 'home-icon.svg', alt: 'ホーム', class: 'footer-icon-img' %>
-      <span>ホーム</span>
-    <% end %>
-    <%= link_to "#", id: "showQrModalLink", class: "footer-icon qr-code-link" do %>
-      <%= image_tag 'qr-icon.svg', alt: 'QR表示', class: 'footer-icon-img' %>
-      <span>QR表示</span>
-    <% end %>
-    <% if @care_content.present? %>
-      <%= link_to edit_care_content_path(@care_content), class: "footer-icon" do %>
-        <%= image_tag 'edit-icon.svg', alt: '編集', class: 'footer-icon-img' %>
-        <span>編集</span>
+  <% end %>
+
+  <div class="qr-code-wrapper">
+    <div class="qr-code-container">
+      <% if @qr_code.present? %>
+        <%= image_tag qr_code_path(@qr_code, format: :png), class: 'qr-code' %>
+      <% else %>
+        <p>QRコードが登録されていません。</p>
       <% end %>
-    <% end %>
+      <span>読み込んでください</span>
+    </div>
+    <div class="qr-code-message">
+      <p>➀左の<span class="highlight">QRコード</span>を読み込む</p>
+      <p>➁お手伝いをお願いします</p>
+    </div>
   </div>
 </div>
 
-<!-- QRコードモーダル -->
-<div id="qrModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <!--<h2>QRコード表示</h2>-->
-    <p class="qr-message"><strong>QRコードを読み込んでください</strong></p>
-    <div class="qr-code-container">
-      <%= image_tag qr_code_path(@qr_code, format: :png), class: 'qr-code' %>
-    </div>
-    <div>
-      <p>➀上のQRコードを読み込んでください</p>
-      <p>➁お手伝いをお願いします</p>
-      <p class="thanks-message"><strong>ご配慮いただきありがとうございます<strong></p>
-    </div>
-      <!--<% if @care_content.present? %>
-        <h2>ケア内容</h2>
-        <p><strong>呼ばれ方:</strong> <%= @care_content.preferred_name %></p>
-        <p><strong>緊急連絡先:</strong> <%= @care_content.phone_number %></p>
-        <p><strong>伝えたいこと:</strong> <%= @care_content.custom_message %></p>
-        <p><strong>メッセージ:</strong> <%= @care_content.message %></p>
-      <% else %>
-        <p>ケア内容が登録されていません。</p>
-      <% end %>-->
-  </div>
+<div class="links-section">
+  <%= link_to edit_care_content_path(@care_content), class: "btn btn-primary icon-link" do %>
+    <img src="<%= asset_path('pen2_icon.svg') %>" alt="Edit Icon" class="icon">
+    <span>伝えたいこと</span>
+  <% end %>
+  
+  <%= link_to "#", class: "btn btn-primary icon-link" do %>
+    <img src="<%= asset_path('print_icon.svg') %>" alt="Print Icon" class="icon">
+    <span>カード印刷</span>
+  <% end %>
+  
+  <%= link_to "tel:#{@care_content.phone_number}", class: "btn btn-primary icon-link phone-link" do %>
+    <img src="<%= asset_path('phone2_icon.svg') %>" alt="Phone Icon" class="icon">
+    <span>緊急連絡先に電話する</span>
+  <% end %>
+
+  <%= link_to edit_user_registration_path, class: "btn btn-primary icon-link" do %>
+    <img src="<%= asset_path('account2_icon.svg') %>" alt="Profile Icon" class="icon">
+    <span>アカウント設定</span>
+  <% end %>
+
 </div>

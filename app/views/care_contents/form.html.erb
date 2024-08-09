@@ -1,53 +1,31 @@
-<div class="header">
-  <%= link_to image_tag('account.svg', class: 'icon-account-circle', alt: ''), edit_user_registration_path %>
-</div>
-<div class="content">
-  <h1>ケア内容の<%= @care_content.persisted? ? "編集" : "登録" %></h1>
+<div class="form-container">
+  <h2>私が伝えたいこと</h2>
 
   <%= form_with(model: @care_content, local: true) do |f| %>
     <div class="field">
       <%= f.label :preferred_name, "呼ばれ方" %>
-      <%= f.text_field :preferred_name %>
+      <%= f.text_field :preferred_name, placeholder: "例：たろう" %>
     </div>
 
     <div class="field">
       <%= f.label :phone_number, "緊急連絡先" %>
-      <%= f.text_field :phone_number %>
+      <%= f.text_field :phone_number, placeholder: "例：000‐0000‐0000"  %>
     </div>
 
     <div class="field">
       <%= f.label :custom_message, "伝えたいこと" %>
-      <%= f.text_area :custom_message %>
+      <%= f.text_area :custom_message, placeholder: "例：機械の操作が苦手です。話すときは右側から話しかけてください。"  %>
     </div>
 
     <div class="field">
       <%= f.label :message, "メッセージ" %>
-      <%= f.text_area :message %>
+      <%= f.text_area :message, placeholder: "例：お手伝いしてくれてありがとうございます。"  %>
     </div>
 
-    <div class="actions">
-      <%= f.submit @care_content.persisted? ? "更新" : "登録", class: "btn btn-update" %>
-    </div>
+    <div class="form-actions">
+      <%= link_to 'ホームに戻る', root_path, class: "btn-secondary-home" %>
+      <%= f.submit @care_content.persisted? ? "更新" : "登録", class: "btn-primary-update" %>
+    </div>    
   <% end %>
-
-  <%= link_to 'ホームに戻る', root_path, class: "btn btn-secondary" %>
 </div>
 
-<div class="footer">
-  <div class="footer-content">
-    <%= link_to root_path, class: "footer-icon" do %>
-      <%= image_tag 'home-icon.svg', alt: 'ホーム', class: 'footer-icon-img' %>
-      <span>ホーム</span>
-    <% end %>
-    <%= link_to "#", id: "showQrModalLink", class: "footer-icon qr-code-link" do %>
-      <%= image_tag 'qr-icon.svg', alt: 'QR表示', class: 'footer-icon-img' %>
-      <span>QR表示</span>
-    <% end %>
-    <% if @care_content.present? %>
-      <%= link_to edit_care_content_path(@care_content), class: "footer-icon" do %>
-        <%= image_tag 'edit-icon.svg', alt: '編集', class: 'footer-icon-img' %>
-        <span>編集</span>
-      <% end %>
-    <% end %>
-  </div>
-</div>

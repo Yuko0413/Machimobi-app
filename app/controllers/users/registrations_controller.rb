@@ -5,7 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def update_resource(resource, params)
-    return super if params['password'].present?
+    return super if params[:password].present?
 
     resource.update_without_password(params.except('current_password'))
   end
@@ -30,7 +30,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def account_update_params
-    params.require(:user).permit(:nickname, :email, :password, :password_confirmation, :current_password)
+    params.require(:user).permit(:nickname, :email, :password, :password_confirmation)
   end
 end
-
