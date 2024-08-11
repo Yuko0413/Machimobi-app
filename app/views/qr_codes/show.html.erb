@@ -1,46 +1,21 @@
-<!-- app/views/qr_codes/show.html.erb -->
+<h1>QRコード表示</h1>
 
-<% content_for :css do %>
-  <%= stylesheet_link_tag 'qr_codes_show' %>
+<p>以下のQRコードを相手に見せてください。</p>
+
+<%= image_tag qr_code_path(@qr_code, format: :png) %>
+
+<% if @care_content.present? %>
+  <h2>ケア内容</h2>
+  <p><strong>呼ばれ方:</strong> <%= @care_content.preferred_name %></p>
+  <p><strong>緊急連絡先:</strong> <%= @care_content.phone_number %></p>
+  <p><strong>伝えたいこと:</strong> <%= @care_content.custom_message %></p>
+  <p><strong>メッセージ:</strong> <%= @care_content.message %></p>
+<% else %>
+  <p>ケア内容が登録されていません。</p>
 <% end %>
 
-<div class="header">
-  <%= link_to image_tag('account.svg', class: 'icon-account-circle', alt: ''), edit_user_registration_path %>
-</div>
-<div class="content">
-  <h1>QRコード表示</h1>
-  <p>以下のQRコードを相手に見せてください。</p>
-  <div class="qr-code-container">
-    <%= image_tag qr_code_path(@qr_code, format: :png) %>
-  </div>
-
-  <% if @care_content.present? %>
-    <div class="details">
-        <div class="text">
-        <h2>表示される内容</h2>
-        <p><strong>呼ばれ方:</strong> <%= @care_content.preferred_name %></p>
-        <p><strong>緊急連絡先:</strong> <%= @care_content.phone_number %></p>
-        <p><strong>伝えたいこと:</strong> <%= @care_content.custom_message %></p>
-        <p><strong>メッセージ:</strong> <%= @care_content.message %></p>
-        </div>
-    </div>
-  <% else %>
-    <p>ケア内容が登録されていません。</p>
-  <% end %>
-</div>
 <div class="footer">
-  <div class="footer-content">
-    <%= link_to root_path, class: "footer-icon" do %>
-      <%= image_tag 'home-icon.svg', alt: 'ホーム', class: 'footer-icon-img' %>
-      <span>ホーム</span>
-    <% end %>
-    <%= link_to edit_care_content_path(current_user.care_content), class: "footer-icon qr-code-link" do %>
-      <%= image_tag 'edit-icon.svg', alt: 'ケア内容を編集する', class: 'footer-icon-img' %>
-      <span>編集</span>
-    <% end %>
-    <%= link_to edit_user_registration_path, class: "footer-icon" do %>
-      <%= image_tag 'account.svg', alt: 'アカウント編集', class: 'footer-icon-img' %>
-      <span>アカウント</span>
-    <% end %>
-  </div>
+  <%= link_to 'ホーム', root_path, class: "btn btn-primary" %>
+  <%= link_to 'ケア内容を編集する', edit_care_content_path(current_user.care_content), class: "btn btn-primary" %>
+  <%= link_to 'アカウント編集', edit_user_registration_path, class: "btn btn-primary" %>
 </div>

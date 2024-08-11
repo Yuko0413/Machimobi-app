@@ -64,3 +64,7 @@ gem 'omniauth-line'
 gem "omniauth-rails_csrf_protection", "~> 1.0"
 
 gem "rqrcode", "~> 2.2"
+
+gem 'omniauth-line'
+
+gem 'typhoeus'

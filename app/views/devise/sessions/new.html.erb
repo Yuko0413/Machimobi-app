@@ -3,31 +3,43 @@
     window.location.href = "<%= root_path %>";
   </script>
 <% else %>
-  <h2>アカウントをお持ちの方</h2>
-
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="auth-section">
+    
+    <h2 class="auth-title">アカウントをお持ちの方</h2>
+    
+    <div class="login-container">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "login-form" }) do |f| %>
+        <div class="login-field">
+          <%= f.label :email, class: "login-form-label" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-input" %>
+        </div>
+    
+        <div class="login-field">
+          <%= f.label :password, class: "login-form-label" %>
+          <%= f.password_field :password, autocomplete: "current-password", class: "form-input" %>
+        </div>
+    
+        <div class="actions">
+          <%= f.submit "ログイン", class: "btn btn-primary" %>
+        </div>
+      <% end %>
     </div>
 
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
+    <div class="button-section">
+      <%= button_to "Googleアカウントでログイン", user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn btn-primary oauth-button" %>
+      <%= link_to "LINEアカウントでログイン", line_login_api_login_path, class: "btn btn-success oauth-button" %>
     </div>
 
-    <div class="actions">
-      <%= f.submit "ログイン", class: "btn btn-primary" %>
+    <h2 class="auth-title">アカウントをお持ちでない方</h2>
+    
+    <div class="button-section">
+      <%= button_to 'メールアドレスで登録', new_user_registration_path, method: :get, class: 'btn btn-secondary register-button' %>
+      <%= button_to "Googleアカウントで登録", user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn btn-primary register-button" %>
+      <%= link_to "LINEアカウントで登録", line_login_api_login_path, class: "btn btn-success register-button" %>
     </div>
-  <% end %>
 
-
-  <%= button_to "Googleアカウントでログイン", user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn btn-primary" %>
-
-  <h2>アカウントをお持ちでない方</h2>
-  <%= button_to 'メールアドレスで登録', new_user_registration_path, method: :get, class: 'btn btn-secondary' %>
-  <%= button_to "Googleアカウントで登録", user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn btn-primary" %>
+    <div class="password-section">
+      <%= link_to "パスワードを忘れた方はこちら", new_user_password_path, class: "btn btn-link password-link" %>
+    </div>
+  </div>
 <% end %>
-
-
-<%= link_to "パスワードを忘れた方はこちら", new_user_password_path, class: "btn btn-link" %>

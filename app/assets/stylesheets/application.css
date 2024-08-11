@@ -1,74 +1,411 @@
 /*
-*= require_tree .
-*= require_self
-*/
-/* モーダルのスタイル */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
-  padding-top: 60px;
-  justify-content: center; /* 水平中央揃え */
-  align-items: center; /* 垂直中央揃え */
-}
+ *= require_tree .
+ *= require_self
+ *= require home
+ */
 
-.modal-content {
-  background-color: #E4B8B8;
-  margin: 5% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  position: relative;
-  top: 40%;
-  transform: translateY(-25%);
-}
-
-.qr-message {
-  color:#ffffff
-}
-
-.thanks-message {
- color: #ffffff
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-/* 180度回転のスタイル */
-.rotate-180 {
-  transform: rotate(180deg);
-}
-
-/* 他のスタイル */
-.footer {
+ .footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #f8f9fa;
-  padding: 10px 0;
+  background-color: #2577c8;
+  padding: 5px 0;
   text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: auto;
+}
+
+.icon-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;  /* リンクの下線を消す */
+  color: inherit;  /* 親要素の色を継承する */
+}
+
+.icon {
+  width: 20px;  /* アイコンのサイズを調整 */
+  height: 20px;  /* アイコンのサイズを調整 */
+  margin-bottom: 8px; 
+
+
+    /* アイコンとテキストの間にスペースを追加 */
+}
+
+.icon-link span {
+  text-align: center;  /* テキストを中央揃え */
+  font-size: 8px;  /* テキストのサイズを調整 */
 }
 
 .footer .btn {
   margin: 0 10px;
 }
 
-  
+/* Form Styling */
+.form-container {
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 300px;
+  width: 100%; /* 横幅を100%に設定 */
+  margin: 20px auto; /* 余白を追加して中央揃え */
+}
+
+
+/* Centering elements within form container */
+.form-container .center-actions {
+  text-align: center;
+  margin-top: 20px; /* 上部にマージンを追加 */
+}
+
+.form-container h2 {
+  margin-bottom: 40px;
+  color: #EE7800;
+  text-align: center; /* 中央揃え */
+
+}
+
+.field {
+  margin-bottom: 15px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 2px;
+  color: #EE7800;
+  font-weight: bold;
+  margin-left: 30px; /* 右にシフト */
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="password"],
+.field textarea {
+  width: 80%; /* 幅を80%に調整 */
+  padding: 10px;
+  margin: auto; /* 中央揃えのために上下左右に自動マージンを追加 */
+  display: block; /* ブロック要素にして中央揃えを適用 */
+  box-sizing: border-box;
+  border: 1px solid #EE7800;
+  resize: vertical; /* textareaのリサイズを垂直方向に制限 */
+}
+
+.field input[type="text"]:focus,
+.field input[type="email"]:focus,
+.field input[type="password"]:focus,
+.field textarea:focus {
+  border-color: #EE7800; /* フォーカス時の枠の色を黒に設定 */
+  box-shadow: 0 0 8px rgba(238, 120, 0, 0.75); /* ボックスシャドウを追加 */
+  outline: none; /* デフォルトのアウトラインを消す */
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center; /* 中央に配置 */
+  align-items: center; /* 垂直方向の中央揃え */
+  margin-top: 50px; /* 上部にマージンを追加 */
+  gap: 10px; /* ボタン間のスペースを調整 */
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+
+/* プレースホルダーのフォントを統一 */
+::placeholder {
+  font-family: 'Noto Sans JP', sans-serif; /* フォントファミリーを統一 */
+  color: #aaaaaa; /* プレースホルダーの色を指定 */
+  opacity: 1; /* プレースホルダーの透明度を指定 */
+}
+
+/* プレースホルダーのスタイルを指定するベンダープレフィックス */
+input::placeholder,
+textarea::placeholder {
+  font-family: 'Noto Sans JP', sans-serif; /* フォントファミリーを統一 */
+  color: #aaaaaa; /* プレースホルダーの色を指定 */
+  opacity: 1; /* プレースホルダーの透明度を指定 */
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  font-family: 'Noto Sans JP', sans-serif; /* フォントファミリーを統一 */
+   /* Internet Explorer 10-11 */
+  color: #aaaaaa;
+}
+
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder { /* Microsoft Edge */
+  font-family: 'Noto Sans JP', sans-serif;/* フォントファミリーを統一 */
+  color: #aaaaaa;
+}
+
+
+/* .btn-primary-update, .btn-secondary-home {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  font-size: clamp(12px, 2vw, 15px);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25); /* ボックスシャドウを追加 */
+/* } */ 
+
+/* .btn-primary-update {
+  background-color: #EE7800;
+  color: white;
+  width: 110px;  
+} */
+
+/* .btn-primary-update:hover {
+  background-color: #d66900;
+} */
+
+/* .btn-secondary-home {
+  background-color: #6c757d;
+  color: white;
+} */
+
+/* .btn-secondary-home:hover {
+  background-color: #5a6268;
+} */
+
+
+.btn-primary-update {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: white;
+  border: 1px solid #EE7800;
+  border-radius: 10px;
+  /* width: calc(100% - 40px); */
+  width: 195px; 
+  max-width: 150px;
+  height: 45px;
+  font-size: clamp(12px, 2vw, 15px);
+  background: #EE7800;
+  background: -webkit-gradient(linear, left top, left bottom, from(#EE7800), to(#d66900));
+  background: -webkit-linear-gradient(top, #EE7800 0%, #d66900 100%);
+  background: linear-gradient(to bottom, #EE7800 0%, #d66900 100%);
+}
+
+.btn-primary-update:hover {
+  background: -webkit-gradient(linear, left bottom, left top, from(#EE7800), to(#d66900));
+  background: -webkit-linear-gradient(bottom, #EE7800 0%, #d66900 100%);
+  background: linear-gradient(to top, #EE7800 0%, #d66900 100%);
+}
+
+.btn-secondary-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  border: 1px solid #6c757d;
+  border-radius: 10px;
+  width: calc(100% - 40px);
+  max-width: 150px;
+  height: 23px;
+  font-size: clamp(12px, 2vw, 15px);
+
+  background: #6c757d;
+  background: -webkit-gradient(linear, left top, left bottom, from(#6c757d), to(#5a6268));
+  background: -webkit-linear-gradient(top, #6c757d 0%, #5a6268 100%);
+  background: linear-gradient(to bottom, #6c757d 0%, #5a6268 100%);
+}
+
+.btn-secondary-home:hover {
+  background: -webkit-gradient(linear, left bottom, left top, from(#6c757d), to(#5a6268));
+  background: -webkit-linear-gradient(bottom, #6c757d 0%, #5a6268 100%);
+  background: linear-gradient(to top, #6c757d 0%, #5a6268 100%);
+}
+
+
+
+
+/* パスワードを忘れた方のリンク */
+.btn-link {
+  background: none;
+  color: #007bff; /* ブルーのテキスト */
+  border: none;
+  padding: 0;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 20px; /* 上部にマージンを追加 */
+  margin-left: 48px;
+}
+
+.btn-link:hover {
+  color: #0056b3; /* ホバー時の色 */
+  text-decoration: none;
+}
+
+.btn-danger {
+  background-color: #dc3545; /* 赤の背景色 */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  width: auto;
+  font-size: 14px;
+  margin-top: 50px; /* 上部にマージンを追加 */
+  margin-left: 80px;
+}
+
+.btn-danger:hover {
+  background-color: #c82333; /* ホバー時の背景色 */
+}
+
+/* 継承したフォームスタイル */
+.delete-confirmation-container {
+  padding: 20px;
+  max-width: 300px;
+  width: 100%;
+  margin: 20px auto; /* 上下に20pxの余白を追加し、左右中央揃えにする */
+}
+
+
+
+/* Centering elements within delete-confirmation-container */
+.delete-confirmation-container .center-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 50px;
+}
+
+/* 継承した見出しスタイル */
+.delete-confirmation-container h2 {
+  margin-bottom: 40px;
+  color: #EE7800;
+  text-align: center;
+}
+
+/* 説明文のスタイル */
+.delete-confirmation-container p {
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.button-danger, .link-back {
+  /* width: 120px; 同じ幅を指定 */
+  text-align: center; /* テキストを中央に配置 */
+}
+
+
+/* 削除ボタンのスタイル */
+.button-danger {
+  background-color: #dc3545;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  text-align: center;
+  width: 120px; /* 幅を指定 */
+
+}
+
+/* 戻るリンクのスタイル */
+.link-back {
+  background-color: #6c757d; /* ボタン風の背景色 */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  text-align: center;
+  width: 80px; /* 幅を指定 */
+
+}
+
+
+.link-back:hover {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 55px;
+  margin-top: 45px;
+
+}
+
+.logo {
+  width: 100px; /* ロゴの幅を調整 */
+  height: auto; /* 高さは自動調整 */
+}
+
+/* 全体のスタイル */
+.auth-section {
+  padding: 20px;
+  max-width: 350px;
+  margin: 10px auto;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* 見出しスタイル */
+.auth-title {
+  margin-bottom: 15px;
+  color: #EE7800;
+  font-size: 1.2rem;
+}
+
+/* フォームフィールドのスタイル */
+.login-container .login-field {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.login-form-label {
+  display: block;
+  margin-bottom: 5px;
+  color: #EE7800;
+  font-weight: bold;
+  margin-left: 70px;
+}
+
+.form-input {
+  width: 60%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #EE7800;
+  box-sizing: border-box;
+  margin-left: 70px;
+}
+
+/* ボタンセクションのスタイル */
+.button-section {
+  margin: 20px 0;
+}
+
+.oauth-button, .register-button {
+  display: block;
+  width: 50%;
+  max-width: 350px;
+  margin: 5px auto;
+  padding: 5px;
+  font-size: 12px;
+  border-radius: 5px;
+  text-align: center;
+}

@@ -1,5 +1,12 @@
-<h2>アカウントが削除されました</h2>
+<div class="delete-confirmation-container">
+  
+  <h2>アカウントが<br>削除されました</h2>
 
-<p>ご利用ありがとうございました。</p>
+  <div class="logo-container">
+    <img src="<%= asset_path('logotype.png') %>" alt="Logo" class="logo">
+  </div>
 
-<%= link_to 'ホームに戻る', root_path %>
+  <p class="thank-you-message">ご利用ありがとうございました!</p>
+
+  <%= link_to 'ホームに戻る', root_path, class: 'btn-primary-home' %>
+</div>
