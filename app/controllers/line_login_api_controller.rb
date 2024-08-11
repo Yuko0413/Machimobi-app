@@ -8,7 +8,7 @@ class LineLoginApiController < ApplicationController
 
     base_authorization_url = 'https://access.line.me/oauth2/v2.1/authorize'
     response_type = 'code'
-    client_id = Rails.application.credentials.line[:channel_id]
+    client_id = Rails.application.credentials.line[:client_id]
     redirect_uri = CGI.escape(line_login_api_callback_url)
     state = session[:state]
     scope = 'profile%20openid'
@@ -44,7 +44,7 @@ class LineLoginApiController < ApplicationController
       options = {
         body: {
           id_token: line_user_id_token,
-          client_id: Rails.application.credentials.line[:channel_id]
+          client_id: Rails.application.credentials.line[:client_id]
         }
       }
 
@@ -72,8 +72,8 @@ class LineLoginApiController < ApplicationController
         grant_type: 'authorization_code',
         code: code,
         redirect_uri: redirect_uri,
-        client_id: Rails.application.credentials.line[:channel_id],
-        client_secret: Rails.application.credentials.line[:channel_secret]
+        client_id: Rails.application.credentials.line[:client_id],
+        client_secret: Rails.application.credentials.line[:client_secret]
       }
     }
     response = Typhoeus::Request.post(url, options)
