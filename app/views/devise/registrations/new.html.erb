@@ -33,6 +33,8 @@
 <% end %>
 
 <%= button_to "Googleアカウントで登録", user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn btn-primary" %>
+<%= button_to "LINEアカウントで登録", user_line_omniauth_authorize_path, method: :post, class: "btn btn-success" %>
+
 
 <h3>すでにアカウントをお持ちの方</h3>
 <%= render "devise/shared/links" %>
