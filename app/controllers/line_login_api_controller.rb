@@ -21,7 +21,10 @@ class LineLoginApiController < ApplicationController
   def callback
     if params[:state] == session[:state]
       line_user_id = get_line_user_id(params[:code])
-      user = User.find_or_initialize_by(line_user_id: line_user_id)
+      user = User.find_or_initialize_by(line_user_id: line_user_id) do |user|
+        user.password = Devise.friendly_token[0,20]
+        user.email = User.create_unique_string + "@example.com"
+      end
 
       if user.save
         session[:user_id] = user.id
