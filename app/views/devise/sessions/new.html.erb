@@ -32,7 +32,7 @@
 
     <h2 class="auth-title">アカウントをお持ちでない方</h2>
     
-    <div class="button-section">
+    <!-- <div class="button-section">
       <%= button_to 'メールアドレスで登録', new_user_registration_path, method: :get, class: 'btn btn-secondary register-button' %>
       <%= button_to "Googleアカウントで登録", user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn btn-primary register-button" %>
       <%= link_to "LINEアカウントで登録", line_login_api_login_path, class: "btn btn-success register-button" %>
@@ -40,7 +40,7 @@
 
     <div class="password-section">
       <%= link_to "パスワードを忘れた方はこちら", new_user_password_path, class: "btn btn-link password-link" %>
-    </div>
+    </div> -->
     <%= render "devise/shared/links" %>
   </div>
 <% end %>
