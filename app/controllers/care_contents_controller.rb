@@ -46,9 +46,7 @@ class CareContentsController < ApplicationController
 
   def html2pdf(html)
     # Ferrumを使ってHTMLからPDFを生成
-    browser = Ferrum::Browser.new(
-      browser_path: "/usr/bin/google-chrome",browser_options: { 'no-sandbox': nil }
-    )
+    browser = Ferrum::Browser.new
 
     browser.goto("data:text/html,#{html}")
     pdf = browser.pdf(
