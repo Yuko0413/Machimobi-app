@@ -33,6 +33,8 @@ class CareContentsController < ApplicationController
     send_data pdf, filename: 'care_content.pdf', type: 'application/pdf'
   end
 
+  /app/.chrome-for-testing/chrome-linux64/chrome
+
 
   private
 
@@ -46,7 +48,8 @@ class CareContentsController < ApplicationController
 
   def html2pdf(html)
     # Ferrumを使ってHTMLからPDFを生成
-    browser = Ferrum::Browser.new
+    #browser = Ferrum::Browser.new
+    browser = Ferrum::Browser.new(browser_path: "/app/.apt/usr/bin/google-chrome")
 
     browser.goto("data:text/html,#{html}")
     pdf = browser.pdf(
