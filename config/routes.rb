@@ -12,7 +12,12 @@ Rails.application.routes.draw do
     get 'goodbye', to: 'users/registrations#goodbye', as: 'goodbye'
   end
 
-  resources :care_contents, only: [:new, :create, :edit, :update]
+  resources :care_contents, only: [:new, :create, :edit, :update] do
+    member do
+      get 'generate_pdf'
+    end
+  end
+
   resources :qr_codes, only: [:show, :index]
 
   get 'qr_codes/:id/scan', to: 'qr_codes#scan', as: 'scan_qr_code'
