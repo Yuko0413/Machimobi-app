@@ -93,14 +93,15 @@ body, h1, p {
   .links-section {
     flex: 1;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    // grid-template-rows: repeat(2, 1fr);
     gap: 20px;
     padding: 10px;
-    place-items: center;
+    // place-items: center;
     box-sizing: border-box;
     width: 90%;
     margin: 0 auto;
+    margin-right: 10px;
     
   }
   
