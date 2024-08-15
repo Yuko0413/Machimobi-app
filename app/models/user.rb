@@ -69,7 +69,8 @@ class User < ApplicationRecord
     qr_code_id = self.qr_code&.id
 
     if qr_code_id
-      Rails.application.routes.url_helpers.scan_qr_code_url(qr_code_id, host: 'localhost:3000')
+      host_url = Rails.application.credentials.host[Rails.env.to_sym]
+      Rails.application.routes.url_helpers.scan_qr_code_url(qr_code_id, host: host_url)
     else
       "QRコードの生成に失敗しました"
     end
