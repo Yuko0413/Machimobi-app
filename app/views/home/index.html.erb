@@ -7,7 +7,7 @@
   <% end %>
 
 <div class="qr-code-wrapper">
-  <div><p class="qr-code-message .highlight">QRコードを読み込んでください</p></div>
+  <div><p class="highlight">QRコードを読み込んでください</p></div>
   <div class="qr-code-container">
     <div class="qr-code-section">
       <% if @qr_code.present? %>
@@ -15,12 +15,12 @@
       <% else %>
         <p>QRコードが登録されていません。</p>
       <% end %>
-      <span class="custom-size">読み込んでください</span>
+      <!-- <span class="custom-size">読み込んでください</span> -->
 
     </div>
     <div class="qr-code-message">
-      <p>➀左の<span class="highlight">QRコード</span>を読み込む</p>
-      <p>➁お手伝いをお願いします</p>
+      <p class="info">➀左のQRコードを<br>読み込む</p>
+      <p class="info">➁お手伝いを<br>お願いします</p>
     </div>
   </div>
 </div>

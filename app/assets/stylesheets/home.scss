@@ -54,6 +54,12 @@ body, h1, p {
     box-sizing: border-box;
   }
 
+  .qr-code-wrapper .highlight {
+    color: #fff;
+    font-size: 16px;
+    
+}
+
   .qr-code-container {
       margin-top: 10px;
       display: flex;
@@ -85,9 +91,13 @@ body, h1, p {
       text-align: left; /* 左揃えに変更 */
   }
 
-  .qr-code-message .highlight {
+  .qr-code-message .info {
       color: #fff;
-      
+      line-height: 1.5;
+      margin-top: 11px;  
+      margin-left: 10px;   
+      text-align: center; 
+      font-size: 13px;
   }
 
   .custom-size {
@@ -95,8 +105,6 @@ body, h1, p {
     line-height: 2.5; /* 行間を調整、値はお好みに応じて変更 */
 
   }
-
-
   
   .highlighted {
     background-color: #ffffff;
@@ -119,14 +127,14 @@ body, h1, p {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     // grid-template-rows: repeat(2, 1fr);
-    gap: 20px;
-    padding: 10px;
+    // gap: 20px;
+    // padding: 10px;
     // place-items: center;
     box-sizing: border-box;
     width: 90%;
     margin: 0 auto;
     margin-right: 10px;
-    
+    margin-top: 15px;    
   }
   
   // .icon-link {
