@@ -8,22 +8,22 @@
     </div>
 
     <div class="field">
-      <%= f.label :email %>
+      <%= f.label :email, "メールアドレス" %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
 
     <div class="field">
-      <%= f.label :password, "New Password" %>
+      <%= f.label :password, "新しいパスワード" %>
       <%= f.password_field :password, autocomplete: "new-password" %>
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation %>
+      <%= f.label :password_confirmation,"新しいパスワード(再)" %>
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
 
     <div class="form-actions">
-      <%= link_to 'ホームに戻る', root_path, class: "btn-secondary-home" %>
+      <%= link_to '更新しないで戻る', root_path, class: "btn-secondary-home" %>
       <%= f.submit "更新", class: "btn-primary-update" %>
     </div>
   <% end %>
