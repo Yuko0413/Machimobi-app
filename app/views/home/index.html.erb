@@ -2,17 +2,21 @@
   <% if @care_content.present? %>
     <% if @care_content.preferred_name.present? %>
       <p class="highlighted"><strong>私の名前は、<br> <%= @care_content.preferred_name %> です</strong></p>
+      <p class="highlighted-text"><strong>今困っていますので、助けてください</strong></p>
     <% end %>
   <% end %>
 
-  <div class="qr-code-wrapper">
-    <div class="qr-code-container">
+<div class="qr-code-wrapper">
+  <div><p class="qr-code-message .highlight">QRコードを読み込んでください</p></div>
+  <div class="qr-code-container">
+    <div class="qr-code-section">
       <% if @qr_code.present? %>
         <%= image_tag qr_code_path(@qr_code, format: :png), class: 'qr-code' %>
       <% else %>
         <p>QRコードが登録されていません。</p>
       <% end %>
-      <span>読み込んでください</span>
+      <span class="custom-size">読み込んでください</span>
+
     </div>
     <div class="qr-code-message">
       <p>➀左の<span class="highlight">QRコード</span>を読み込む</p>
@@ -20,6 +24,7 @@
     </div>
   </div>
 </div>
+
 
 <div class="links-section">
   <%= link_to edit_care_content_path(@care_content), class: "btn btn-primary icon-link" do %>

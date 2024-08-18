@@ -36,8 +36,11 @@ body, h1, p {
     margin-right: 20px;
   }
   
+ 
+
   .qr-code-wrapper {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #F29A42;
@@ -49,35 +52,51 @@ body, h1, p {
     line-height: 5vh;
     width: 90%;
     box-sizing: border-box;
-    //border: 1px solid #EE7800;
   }
-  
+
   .qr-code-container {
-    margin: 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 2vw;
-    background-color: #ffffff;
-    padding: 10px;
-    border-radius: 10px;
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; /* 上に揃える */
+      width: 100%;
+      margin-bottom: 10px;
   }
-  
+
+  .qr-code-section {
+      display: flex;         /* フレックスボックスを適用 */
+      flex-direction: column; /* 縦に並べる */
+      align-items: center;    /* 中央揃え */
+      margin-right: 20px;
+      text-align: center;
+      background-color: #ffffff;
+      padding: 10px;
+      border-radius: 10px;
+  }
+
   .qr-code {
-    width: 90px;
+      width: 90px;
   }
-  
+
   .qr-code-message {
-    margin-left: 5px;
-    color: #ffffff;
-    font-size: 3vw;
-    line-height: 3;
+      color: #ffffff;
+      font-size: 3vw;
+      line-height: 3;
+      text-align: left; /* 左揃えに変更 */
   }
-  
+
   .qr-code-message .highlight {
-    color: #fff;
+      color: #fff;
+      
   }
+
+  .custom-size {
+    font-size: 10px; /* ここで適切なサイズを指定 */
+    line-height: 2.5; /* 行間を調整、値はお好みに応じて変更 */
+
+  }
+
+
   
   .highlighted {
     background-color: #ffffff;
@@ -88,6 +107,11 @@ body, h1, p {
     font-size: 25px;
     text-align: center;
     margin-top: 0; /* 追加：余分な上部マージンをリセット */
+  }
+
+  .highlighted-text {
+    color: #EE7800;
+
   }
   
   .links-section {

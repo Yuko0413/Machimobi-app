@@ -72,10 +72,11 @@
 
 .field label {
   display: block;
-  margin-bottom: 2px;
+  margin-bottom: 5px;
   color: #EE7800;
   font-weight: bold;
   margin-left: 30px; /* 右にシフト */
+  font-size: 14px;
 }
 
 .field input[type="text"],

@@ -1,30 +1,30 @@
 <div class="form-container">
-  <h2>私が伝えたいこと</h2>
+  <h2>緊急時の表示内容</h2>
 
   <%= form_with(model: @care_content, local: true) do |f| %>
     <div class="field">
-      <%= f.label :preferred_name, "呼ばれ方" %>
+      <%= f.label :preferred_name, "呼びかけてもらいたい名前" %>
       <%= f.text_field :preferred_name, placeholder: "例：たろう" %>
     </div>
 
     <div class="field">
-      <%= f.label :phone_number, "緊急連絡先" %>
+      <%= f.label :phone_number, "緊急時につないでほしい連絡先" %>
       <%= f.text_field :phone_number, placeholder: "例：000‐0000‐0000"  %>
     </div>
 
     <div class="field">
-      <%= f.label :custom_message, "伝えたいこと" %>
+      <%= f.label :custom_message, "緊急時にお願いしたいこと" %>
       <%= f.text_area :custom_message, placeholder: "例：機械の操作が苦手です。話すときは右側から話しかけてください。"  %>
     </div>
 
     <div class="field">
-      <%= f.label :message, "メッセージ" %>
-      <%= f.text_area :message, placeholder: "例：お手伝いしてくれてありがとうございます。"  %>
+      <%= f.label :message, "サポートしてくれた方へのメッセージ" %>
+      <%= f.text_area :message, placeholder: "※こちらは、緊急時に表示されるもので、サポートいただいた際に何とお礼したいかをイメージしてください"  %>
     </div>
 
     <div class="form-actions">
-      <%= link_to 'ホームに戻る', root_path, class: "btn-secondary-home" %>
       <%= f.submit @care_content.persisted? ? "更新" : "登録", class: "btn-primary-update" %>
+      <%= link_to '更新しないで戻る', root_path, class: "btn-secondary-home" %>
     </div>    
   <% end %>
 </div>
