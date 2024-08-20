@@ -410,3 +410,24 @@ textarea::-ms-input-placeholder { /* Microsoft Edge */
   border-radius: 5px;
   text-align: center;
 }
+
+/* フラッシュメッセージの基本スタイル */
+.flash {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* 通知メッセージのスタイル */
+.flash.notice {
+  background-color: #DFF2BF;
+  color: #4F8A10;
+}
+
+/* エラーメッセージのスタイル */
+.flash.alert {
+  background-color: #FFBABA;
+  color: #D8000C;
+}
