@@ -11,11 +11,34 @@
   </head>
 
   <body>
+    <!-- <%= notice %>  -->
+    <!-- <%= alert %>  -->
+    <div id="flash-messages">
+      <% if notice %>
+        <div class="flash notice"><%= notice %></div>
+      <% end %>
+      <% if alert %>
+        <div class="flash alert"><%= alert %></div>
+      <% end %>
+    </div>
+
+    
     
     <main>
       <%= yield %>
     </main>
+
+    <script>
+      document.addEventListener('turbolinks:load', () => {
+        const flashMessages = document.getElementById('flash-messages');
+        if (flashMessages) {
+          setTimeout(() => {
+            flashMessages.style.display = 'none';
+          }, 4000); // 4秒後にメッセージを非表示
+        }
+      });
+    </script>
   
   </body>
-  </html>
+</html>
 

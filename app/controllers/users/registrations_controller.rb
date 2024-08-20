@@ -10,6 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource.update_without_password(params.except('current_password'))
   end
 
+
   def delete_account
     # 確認画面を表示するためのアクション
   end
