@@ -1,14 +1,15 @@
 <!-- app/views/qr_codes/scan.html.erb -->
-<h2>QRコード詳細</h2>
+<div class="qr-code-details">
+  <h2 class="title">QRコード詳細</h2>
 
-<% if @qr_code.user.care_content.present? %>
-  <p>呼ばれ方: <%= @qr_code.user.care_content.preferred_name %></p>
-  <p>緊急連絡先: <%= @qr_code.user.care_content.phone_number %></p>
-  <p>伝えたいこと: <%= @qr_code.user.care_content.custom_message %></p>
-  <p>メッセージ: <%= @qr_code.user.care_content.message %></p>
-<% else %>
-  <p>ケア内容の情報が登録されていません。</p>
-<% end %>
+  <% if @qr_code.user.care_content.present? %>
+    <p class="info"><strong>呼ばれ方:</strong> <%= @qr_code.user.care_content.preferred_name %></p>
+    <p class="info"><strong>緊急連絡先:</strong> <%= @qr_code.user.care_content.phone_number %></p>
+    <p class="info"><strong>伝えたいこと:</strong> <%= @qr_code.user.care_content.custom_message %></p>
+    <p class="info"><strong>メッセージ:</strong> <%= @qr_code.user.care_content.message %></p>
+  <% else %>
+    <p class="no-info">ケア内容の情報が登録されていません。</p>
+  <% end %>
 
-<%= link_to "ホーム", root_path %>
-
+  <%= link_to "ホーム", root_path, class: "btn btn-home" %>
+</div>

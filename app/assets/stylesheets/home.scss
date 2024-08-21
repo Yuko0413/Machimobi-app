@@ -43,7 +43,8 @@ body, h1, p {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #F29A42;
+    background-color: #EE7800;
+ 
     padding: 20px;
     border-radius: 10px;
     margin: 35px auto;
@@ -52,6 +53,9 @@ body, h1, p {
     line-height: 5vh;
     width: 90%;
     box-sizing: border-box;
+    @media print {
+      -webkit-print-color-adjust: exact;
+    }
   }
 
   .qr-code-wrapper .highlight {
@@ -125,16 +129,15 @@ body, h1, p {
   .links-section {
     flex: 1;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    // grid-template-rows: repeat(2, 1fr);
-    // gap: 20px;
-    // padding: 10px;
-    // place-items: center;
-    box-sizing: border-box;
+    grid-template-columns: repeat(2, 1fr); /* 2列に設定 */
+    // grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 10px;
+    place-items: center;
+    // box-sizing: border-box;
     width: 90%;
     margin: 0 auto;
-    margin-right: 10px;
-    margin-top: 15px;    
+    // margin-top: 15px;    
   }
   
   // .icon-link {
@@ -212,4 +215,55 @@ body, h1, p {
   .footer {
     display: none;
   }
-  
+
+  /* app/assets/stylesheets/application.css */
+
+.qr-code-details {
+  padding: 20px;
+  background-color: #f9f9f9; /* 背景色をライトグレーに設定 */
+  border-radius: 8px; /* 角を丸める */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 影を追加 */
+  max-width: 600px; /* 最大幅を設定 */
+  margin: 0 auto; /* 中央に配置 */
+}
+
+.qr-code-details .title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333; /* タイトルの色を濃いグレーに設定 */
+  margin-bottom: 20px; /* 下にマージンを追加 */
+}
+
+.qr-code-details .info {
+  font-size: 18px;
+  color: #555; /* テキストの色を少し淡いグレーに設定 */
+  margin-bottom: 15px; /* 各項目の間にマージンを追加 */
+}
+
+.qr-code-details .no-info {
+  font-size: 18px;
+  color: #ff0000; /* 赤色でエラーメッセージを表示 */
+  margin-bottom: 15px; /* マージンを追加 */
+}
+
+.qr-code-details .btn-home {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff; /* ボタンの背景色を青に設定 */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 20px; /* ボタン上にマージンを追加 */
+}
+
+.qr-code-details .btn-home:hover {
+  background-color: #0056b3; /* ホバー時の色を少し濃い青に設定 */
+}
+
+// @media print {
+//   .qr-code-wrapper {
+//     background-color: #ff0000;
+//     -webkit-print-color-adjust: exact;
+//   }
+// }

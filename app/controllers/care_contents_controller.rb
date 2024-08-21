@@ -20,7 +20,7 @@ class CareContentsController < ApplicationController
 
   def update
     if @care_content.update(care_content_params)
-      redirect_to root_path, notice: 'ケア内容が更新されました。'
+      redirect_to root_path, notice: '緊急時の表示内容がされました。'
     else
       render :form
     end

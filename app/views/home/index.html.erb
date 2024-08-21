@@ -29,13 +29,13 @@
 <div class="links-section">
   <%= link_to edit_care_content_path(@care_content), class: "btn btn-primary icon-link" do %>
     <img src="<%= asset_path('pen2_icon.svg') %>" alt="Edit Icon" class="icon">
-    <span>伝えたいこと</span>
+    <span>緊急時の表示内容</span>
   <% end %>
   
-  <!-- <%= link_to "#", class: "btn btn-primary icon-link" do %>
+  <%= link_to "#", class: "btn btn-primary icon-link",id: "printer-button" do %>
     <img src="<%= asset_path('print_icon.svg') %>" alt="Print Icon" class="icon">
-    <span>カード印刷</span>
-  <% end %> -->
+    <span>画面印刷</span>
+  <% end %>
   
   <%= link_to "tel:#{@care_content.phone_number}", class: "btn btn-primary icon-link phone-link" do %>
     <img src="<%= asset_path('phone2_icon.svg') %>" alt="Phone Icon" class="icon">
