@@ -22,3 +22,19 @@ window.document.addEventListener('turbolinks:load', () => {
         })
     }
 })
+
+document.addEventListener('DOMContentLoaded', function() {
+    const addPhoneNumberButton = document.getElementById('add-phone-number');
+    const additionalPhoneNumbersDiv = document.getElementById('additional-phone-numbers');
+  
+    addPhoneNumberButton.addEventListener('click', function() {
+      const newField = document.createElement('div');
+      newField.classList.add('field');
+      newField.innerHTML = `
+        <label for="care_content_phone_numbers">緊急時につないでほしい連絡先</label>
+        <input type="text" name="care_content[phone_numbers][]" placeholder="例：000‐0000‐0000">
+      `;
+      additionalPhoneNumbersDiv.appendChild(newField);
+    });
+  });
+  

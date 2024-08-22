@@ -3,7 +3,7 @@
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <div class="field">
-      <%= f.label :nickname, "登録したお名前" %>
+      <%= f.label :nickname, "登録名" %>
       <%= f.text_field :nickname, autofocus: true %>
     </div>
 

@@ -12,6 +12,10 @@
       <%= f.text_field :phone_number, placeholder: "例：000‐0000‐0000"  %>
     </div>
 
+     <!-- 追加ボタン -->
+     <div id="additional-phone-numbers"></div>
+     <button type="button" id="add-phone-number" class="btn">+</button>
+ 
     <div class="field">
       <%= f.label :custom_message, "緊急時にお願いしたいこと" %>
       <%= f.text_area :custom_message, placeholder: "例：機械の操作が苦手です。話すときは右側から話しかけてください。"  %>
