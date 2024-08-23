@@ -3,7 +3,7 @@ class CreateCareContents < ActiveRecord::Migration[6.1]
     create_table :care_contents do |t|
       t.references :user, null: false, foreign_key: true
       t.string :preferred_name
-      t.string :phone_number
+      t.json :phone_numbers, default: []
       t.text :custom_message
       t.bigint :template_id
       t.text :message
@@ -12,3 +12,4 @@ class CreateCareContents < ActiveRecord::Migration[6.1]
     end
   end
 end
+

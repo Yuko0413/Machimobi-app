@@ -29,23 +29,28 @@
 <div class="links-section">
   <%= link_to edit_care_content_path(@care_content), class: "btn btn-primary icon-link" do %>
     <img src="<%= asset_path('pen2_icon.svg') %>" alt="Edit Icon" class="icon">
-    <span>緊急時の表示内容</span>
+    <span><strong>緊急時の表示内容</strong></span>
   <% end %>
   
   <%= link_to "#", class: "btn btn-primary icon-link",id: "printer-button" do %>
     <img src="<%= asset_path('print_icon.svg') %>" alt="Print Icon" class="icon">
-    <span>画面印刷</span>
+    <span><strong>画面印刷</strong></span>
   <% end %>
   
   <%= link_to "tel:#{@care_content.phone_number}", class: "btn btn-primary icon-link phone-link" do %>
     <img src="<%= asset_path('phone2_icon.svg') %>" alt="Phone Icon" class="icon">
-    <span>緊急連絡先に電話する</span>
+    <span><strong>緊急連絡先に電話する</strong></span>
   <% end %>
 
   <%= link_to edit_user_registration_path, class: "btn btn-primary icon-link" do %>
     <img src="<%= asset_path('account2_icon.svg') %>" alt="Profile Icon" class="icon">
-    <span>アカウント設定</span>
+    <span><strong>アカウント設定</strong></span>
   <% end %>
+
+  <% if user_signed_in? %>
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { confirm: 'ログアウトしますか？' } %>
+  <% end %>
+
 
 
 </div>

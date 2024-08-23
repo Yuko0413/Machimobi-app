@@ -4,8 +4,16 @@
 
   <% if @qr_code.user.care_content.present? %>
     <p class="info">呼んでほしい名前: <%= @qr_code.user.care_content.preferred_name %></p>
-    <p class="info">緊急時の連絡先: 
-      <%= link_to @qr_code.user.care_content.phone_number, "tel:#{@qr_code.user.care_content.phone_number}" %>
+
+    <% if @qr_code.user.care_content.phone_numbers.present? %>
+      <p class="info">緊急時の連絡先:</p>
+      <% @qr_code.user.care_content.phone_numbers.each do |phone_number| %>
+        <p class="info">
+          <%= link_to phone_number, "tel:#{phone_number}" %>
+        </p>
+      <% end %>
+    <% end %>
+    
     <p class="info">緊急時にお願いしたいこと:<br> <%= @qr_code.user.care_content.custom_message %></p>
     <p class="info">あなたへのメッセージ:<br><%= @qr_code.user.care_content.message %></p>
   <% else %>

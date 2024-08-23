@@ -8,13 +8,14 @@ class CareContentsController < ApplicationController
 
   def create
     if @care_content.update(care_content_params)
-      redirect_to root_path, notice: 'ケア内容が登録されました。'
+      redirect_to root_path, notice: '緊急時の表示内容が登録されました。'
     else
       render :form
     end
   end
 
   def edit
+    Rails.logger.debug("CareContent: #{@care_content.inspect}")
     render :form
   end
 
@@ -33,6 +34,6 @@ class CareContentsController < ApplicationController
   end
 
   def care_content_params
-    params.require(:care_content).permit(:preferred_name, :phone_number, :custom_message, :message)
+    params.require(:care_content).permit(:preferred_name, :custom_message, :message,  phone_numbers: [])
   end
 end

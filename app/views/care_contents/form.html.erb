@@ -12,9 +12,22 @@
       <%= f.text_field :phone_number, placeholder: "例：000‐0000‐0000"  %>
     </div>
 
+    <!-- 追加された電話番号フィールドの表示 -->
+    <div id="additional-phone-numbers">
+      <% if @care_content.phone_numbers.present? %>
+        <% @care_content.phone_numbers.drop(1).each do |phone_number| %>
+          <div class="field">
+            <%= text_field_tag "care_content[phone_numbers][]", phone_number, placeholder: "例：000‐0000‐0000" %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+
      <!-- 追加ボタン -->
-     <div id="additional-phone-numbers"></div>
-     <button type="button" id="add-phone-number" class="btn">+</button>
+     <% if @care_content.phone_numbers.to_a.size < 3 %>
+       <button type="button" id="add-phone-number" class="btn">+ 連絡先を追加</button>
+     <% end %>
  
     <div class="field">
       <%= f.label :custom_message, "緊急時にお願いしたいこと" %>
