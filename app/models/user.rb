@@ -11,23 +11,25 @@ class User < ApplicationRecord
   after_create :generate_qr_code_and_care_content
 
   def self.from_omniauth(auth)
+    puts "=============="
+    puts auth
     user = where(provider: auth.provider, uid: auth.uid).first_or_initialize do |u|
-      u.email = auth.info.email if u.email.blank?
+      u.email = auth.info.email || "#{auth.uid}+#{auth.provider}@example.com"# LINE => nothing 
       u.password = Devise.friendly_token[0, 20] if u.password.blank?
       u.nickname = auth.info.name if u.nickname.blank?  # Googleから提供される名前をニックネームとして設定
-      u.line_user_id ||= SecureRandom.uuid  # line_user_id が空の場合は一意の値を生成
+      u.line_user_id ||= auth.uid  # line_user_id が空の場合は一意の値を生成
     end
     user.save!(validate: false)
     user
   end
 
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0, 20]
-      user.nickname = auth.info.name   # LINEの表示名を保存
-    end
-  end
+  # def self.from_omniauth(auth)
+  #   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+  #     user.email = auth.info.email
+  #     user.password = Devise.friendly_token[0, 20]
+  #     user.nickname = auth.info.name   # LINEの表示名を保存
+  #   end
+  # end
 
   def self.create_unique_string
     SecureRandom.uuid
