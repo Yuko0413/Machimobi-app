@@ -396,7 +396,7 @@ textarea::-ms-input-placeholder { /* Microsoft Edge */
 }
 
 /* ボタンセクションのスタイル */
-.button-section {
+/* .button-section {
   margin: 20px 0;
 }
 
@@ -407,9 +407,121 @@ textarea::-ms-input-placeholder { /* Microsoft Edge */
   margin: 5px auto;
   padding: 5px;
   font-size: 12px;
-  border-radius: 5px;
   text-align: center;
+} */
+
+/* ボタンセクションのスタイル */
+.button-section {
+  margin: 20px 0;
 }
+
+
+.oauth-button, .register-button {
+  display: block;
+  width: 50%;
+  max-width: 350px;
+  margin: 5px auto;
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid #ccc; /* ボタンに枠を追加 */
+  border-radius: 4px; /* 角を丸くする */
+  text-decoration: none; /* リンクの下線を削除 */
+}
+
+.login-btn {
+  background-color: #EE7800;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px;
+  width: 190px;
+}
+
+/* 色ごとのスタイル */
+.btn-primary {
+  background-color: #fff;
+  color: grey;
+  width: 190px;
+}
+
+.btn-success {
+  background-color: #00c300;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #EE7800;
+  color: #fff;
+}
+
+
+.button-section-no-account {
+  margin: 20px 0;
+}
+
+/* メールアドレスで登録ボタンのスタイル */
+.email-register-button {
+  background-color: #EE7800; /* 背景色 */
+  color: #fff; /* テキスト色 */
+  border: 1px solid #ddd; /* 境界線色 */
+  border-radius: 4px; /* 角を丸くする */
+  padding: 10px 20px;
+  text-align: center;
+  display: block;
+  width: 150px;
+  max-width: 350px;
+
+}
+
+.email-register-button:hover {
+  background-color: #e2e6ea; /* ホバー時の背景色 */
+}
+
+/* Googleで登録ボタンのスタイル */
+.google-register-button {
+  background-color: #fff; /* Googleのブランドカラー */
+  color: grey;
+  padding: 10px 20px;
+  text-align: center;
+  display: block;
+  width: 190px;
+  max-width: 350px;
+  margin: -25px auto 10px auto; /* 上のマージンをマイナスにして上にあげる */
+  border: 1px solid #ccc; /* ボタンに枠を追加 */
+  border-radius: 4px;
+}
+
+.google-register-button:hover {
+  background-color: #c23321; /* ホバー時の背景色 */
+}
+
+/* LINEで登録ボタンのスタイル */
+.line-register-button {
+  background-color: #00c300; /* LINEのブランドカラー */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  display: block;
+  width: 150px;
+  max-width: 350px;
+  margin: -25px auto 10px auto; /* 上のマージンをマイナスにして上にあげる */
+
+}
+
+.line-register-button:hover {
+  background-color: #00a300; /* ホバー時の背景色 */
+}
+
+
+/* ホバー時のスタイル */
+.oauth-button:hover, .register-button:hover {
+  background-color: #f8f9fa; /* ホバー時に背景色を変更 */
+  border-color: #ccc;
+  color: #000;
+}
+
 
 /* フラッシュメッセージの基本スタイル */
 .flash {
@@ -432,14 +544,3 @@ textarea::-ms-input-placeholder { /* Microsoft Edge */
   color: #D8000C;
 }
 
-.custom-radio label {
-  color: #ddd;
-}
-.custom-radio label:hover
-{
-  color: #888;
-}
-.custom-radio input[type="radio"]:checked + label {
-  color: #000;
-  border: 1px solid #000;
-}

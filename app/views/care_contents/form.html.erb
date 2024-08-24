@@ -13,7 +13,13 @@
     </div>
 
     <div class="select-wrapper">
-      <%= f.select :relationship_1, options_for_select([['親族', '1'], ['友人', '2'], ['ケアマネ', '3'], ['その他', '4']], selected: @care_content.relationship_1), { prompt: '連絡先➀との関係性', hidden: true }, class: 'select' %>
+      <select class="select">
+          <option value="" hidden>連絡先➀との関係性</option>
+          <option value="1">親族</option>
+          <option value="2">友人</option>
+          <option value="3">ケアマネ</option>
+          <option value="4">その他</option>
+      </select>
     </div>
 
     <div class="field">
@@ -63,4 +69,3 @@
     </div>    
   <% end %>
 </div>
-

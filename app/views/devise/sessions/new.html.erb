@@ -20,27 +20,19 @@
         </div>
     
         <div class="actions">
-          <%= f.submit "ログイン", class: "btn btn-primary" %>
+          <%= f.submit "メールアドレスでログイン", class: "login-btn" %>
         </div>
       <% end %>
     </div>
 
     <div class="button-section">
-      <%= button_to "Googleアカウントでログイン", user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn btn-primary oauth-button" %>
-      <%= link_to "LINEアカウントでログイン", user_line_omniauth_authorize_path, method: :post, class: "btn btn-success oauth-button" %>
+      <%= button_to "Googleでログイン", user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn btn-primary oauth-button" %>
+      <%= link_to "LINEでログイン", user_line_omniauth_authorize_path, method: :post, class: "btn btn-success oauth-button" %>
     </div>
 
     <h2 class="auth-title">アカウントをお持ちでない方</h2>
     
-    <!-- <div class="button-section">
-      <%= button_to 'メールアドレスで登録', new_user_registration_path, method: :get, class: 'btn btn-secondary register-button' %>
-      <%= button_to "Googleアカウントで登録", user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn btn-primary register-button" %>
-      <%= link_to "LINEアカウントで登録", line_login_api_login_path, class: "btn btn-success register-button" %>
+    <div class="button-section-no-account">
+      <%= render "devise/shared/links" %>
     </div>
-
-    <div class="password-section">
-      <%= link_to "パスワードを忘れた方はこちら", new_user_password_path, class: "btn btn-link password-link" %>
-    </div> -->
-    <%= render "devise/shared/links" %>
-  </div>
 <% end %>

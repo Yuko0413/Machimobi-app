@@ -37,17 +37,9 @@
     <span><strong>画面印刷</strong></span>
   <% end %>
   
-  <!-- <%= link_to "tel:#{@care_content.phone_number}", class: "btn btn-primary icon-link phone-link" do %>
+  <%= link_to "tel:#{@care_content.phone_number}", class: "btn btn-primary icon-link phone-link" do %>
     <img src="<%= asset_path('phone2_icon.svg') %>" alt="Phone Icon" class="icon">
     <span><strong>緊急連絡先に電話する</strong></span>
-  <% end %> -->
-
-  <% if @care_content.phone_number_1.present? %>
-    <%= link_to "tel:#{@care_content.phone_number_1}", class: "btn btn-primary icon-link phone-link" do %>
-      <img src="<%= asset_path('phone2_icon.svg') %>" alt="Phone Icon" class="icon">
-      <span><strong>緊急連絡先に電話する</strong></span>
-      <p>関係性: <%= @care_content.relationship_1 %></p>
-    <% end %>
   <% end %>
 
   <%= link_to edit_user_registration_path, class: "btn btn-primary icon-link" do %>
