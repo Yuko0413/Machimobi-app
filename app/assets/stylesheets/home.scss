@@ -270,3 +270,50 @@ body, h1, p {
 //     -webkit-print-color-adjust: exact;
 //   }
 // }
+
+.select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 1px solid #EE7800;
+  padding: 5px 25px 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease; /* アニメーションを追加 */
+  margin-left: 30px;
+  margin-bottom: 10px;
+  height: 35px;
+}
+
+.select:focus {
+  outline: none;
+  box-shadow: 0 0 10px #EE7800; /* 枠が光るエフェクト */
+}
+
+.select:disabled {
+  pointer-events: none;
+  background-color: #f1f1f1;
+  color: #EE7800;
+}
+
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.select-wrapper::after {
+  content: '';
+  position: absolute;
+  border: 4px solid #EE7800;
+  border-bottom: 0;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  top: calc(50% - 3px);
+  right: 10px;
+  width: 0;
+  height: 0;
+}
+
+.select-wrapper--disabled::after {
+  border-top-color: #EE7800;
+}

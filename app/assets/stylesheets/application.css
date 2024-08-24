@@ -431,3 +431,15 @@ textarea::-ms-input-placeholder { /* Microsoft Edge */
   background-color: #FFBABA;
   color: #D8000C;
 }
+
+.custom-radio label {
+  color: #ddd;
+}
+.custom-radio label:hover
+{
+  color: #888;
+}
+.custom-radio input[type="radio"]:checked + label {
+  color: #000;
+  border: 1px solid #000;
+}

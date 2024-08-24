@@ -8,26 +8,44 @@
     </div>
 
     <div class="field">
-      <%= f.label :phone_number, "緊急時につないでほしい連絡先" %>
+      <%= f.label :phone_number, "緊急時につないでほしい連絡先➀" %>
       <%= f.text_field :phone_number, placeholder: "例：000‐0000‐0000"  %>
     </div>
 
-    <!-- 追加された電話番号フィールドの表示 -->
-    <div id="additional-phone-numbers">
-      <% if @care_content.phone_numbers.present? %>
-        <% @care_content.phone_numbers.drop(1).each do |phone_number| %>
-          <div class="field">
-            <%= text_field_tag "care_content[phone_numbers][]", phone_number, placeholder: "例：000‐0000‐0000" %>
-          </div>
-        <% end %>
-      <% end %>
+    <div class="select-wrapper">
+      <%= f.select :relationship_1, options_for_select([['親族', '1'], ['友人', '2'], ['ケアマネ', '3'], ['その他', '4']], selected: @care_content.relationship_1), { prompt: '連絡先➀との関係性', hidden: true }, class: 'select' %>
     </div>
 
+    <div class="field">
+      <%= f.label :phone_number, "緊急時につないでほしい連絡先➁" %>
+      <%= f.text_field :phone_number, placeholder: "例：000‐0000‐0000"  %>
+    </div>
 
-     <!-- 追加ボタン -->
-     <% if @care_content.phone_numbers.to_a.size < 3 %>
-       <button type="button" id="add-phone-number" class="btn">+ 連絡先を追加</button>
-     <% end %>
+    <div class="select-wrapper">
+      <select class="select">
+          <option value="" hidden>連絡先➁との関係性</option>
+          <option value="1">親族</option>
+          <option value="2">友人</option>
+          <option value="3">ケアマネ</option>
+          <option value="4">その他</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <%= f.label :phone_number, "緊急時につないでほしい連絡先⓷" %>
+      <%= f.text_field :phone_number, placeholder: "例：000‐0000‐0000"  %>
+    </div>
+
+    <div class="select-wrapper">
+      <select class="select">
+          <option value="" hidden>連絡先⓷との関係性</option>
+          <option value="1">親族</option>
+          <option value="2">友人</option>
+          <option value="3">ケアマネ</option>
+          <option value="4">その他</option>
+      </select>
+    </div>
+
  
     <div class="field">
       <%= f.label :custom_message, "緊急時にお願いしたいこと" %>

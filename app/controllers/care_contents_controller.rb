@@ -34,6 +34,6 @@ class CareContentsController < ApplicationController
   end
 
   def care_content_params
-    params.require(:care_content).permit(:preferred_name, :custom_message, :message,  phone_numbers: [])
+    params.require(:care_content).permit(:preferred_name, :custom_message, :message,  :phone_number_1, :relationship_1, :phone_number_2, :relationship_2, :phone_number_3, :relationship_3)
   end
 end
