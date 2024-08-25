@@ -625,7 +625,7 @@ textarea::-ms-input-placeholder { /* Microsoft Edge */
   margin: 5px auto 10px auto; /* 上のマージンをマイナスにして上にあげる */
   border: 1px solid #ccc; /* ボタンに枠を追加 */
   border-radius: 4px;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 .line-log-in-button {
@@ -637,7 +637,7 @@ textarea::-ms-input-placeholder { /* Microsoft Edge */
   display: block;
   width: 150px;
   max-width: 350px;
-  margin: -25px auto 10px auto; /* 上のマージンをマイナスにして上にあげる */
+  margin: -20px auto 10px auto; /* 上のマージンをマイナスにして上にあげる */
   border-radius: 4px;
 
 }

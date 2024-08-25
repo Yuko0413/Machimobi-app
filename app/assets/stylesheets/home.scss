@@ -30,13 +30,12 @@ body, h1, p {
     align-items: center;
     justify-content: center;
     //margin: 20px;
-    padding-top: 60px; /* ヘッダーの高さ分だけ上部に余白を追加 */
+    padding-top: 40px; /* ヘッダーの高さ分だけ上部に余白を追加 */
     box-sizing: border-box;
     margin-left: 20px;
     margin-right: 20px;
   }
   
- 
 
   .qr-code-wrapper {
     display: flex;
