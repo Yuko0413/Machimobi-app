@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_08_05_234847) do
+ActiveRecord::Schema.define(version: 2024_08_26_040205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,20 @@ ActiveRecord::Schema.define(version: 2024_08_05_234847) do
     t.text "message"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "relationship_1"
+    t.string "relationship_2"
+    t.string "relationship_3"
+    t.json "phone_numbers"
     t.index ["user_id"], name: "index_care_contents_on_user_id"
+  end
+
+  create_table "emergency_contacts", force: :cascade do |t|
+    t.string "phone_number"
+    t.string "relationship"
+    t.bigint "care_content_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["care_content_id"], name: "index_emergency_contacts_on_care_content_id"
   end
 
   create_table "qr_codes", force: :cascade do |t|
@@ -54,5 +67,6 @@ ActiveRecord::Schema.define(version: 2024_08_05_234847) do
   end
 
   add_foreign_key "care_contents", "users", on_delete: :cascade
+  add_foreign_key "emergency_contacts", "care_contents"
   add_foreign_key "qr_codes", "users", on_delete: :cascade
 end

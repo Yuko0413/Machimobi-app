@@ -68,3 +68,6 @@ gem "rqrcode", "~> 2.2"
 gem 'omniauth-line'
 
 gem 'typhoeus'
+
+gem 'cocoon'
+

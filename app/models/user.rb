@@ -48,24 +48,55 @@ class User < ApplicationRecord
     self.line_user_id ||= SecureRandom.uuid
   end
 
+  # def generate_qr_code_and_care_content
+  #   Rails.logger.debug "Generating care content and QR code for user #{self.id}"
+  #   care_content = self.build_care_content(preferred_name: self.nickname || "ユーザー")
+  #   if care_content.save
+  #     Rails.logger.debug "Care content created: #{care_content.inspect}"
+  #   else
+  #     Rails.logger.debug "Care content creation failed: #{care_content.errors.full_messages.join(', ')}"
+  #   end
+  #   qr_code = QrCode.create(user: self)
+  #   tmp = generate_qr_code_data
+  #   qr_code.update(qr_code: tmp)
+
+  #   if qr_code.persisted?
+  #     Rails.logger.debug "QR code created: #{qr_code.inspect}"
+  #   else
+  #     Rails.logger.debug "QR code creation failed: #{qr_code.errors.full_messages.join(', ')}"
+  #   end
+  # end
+
   def generate_qr_code_and_care_content
     Rails.logger.debug "Generating care content and QR code for user #{self.id}"
+    
+    # CareContentを作成
     care_content = self.build_care_content(preferred_name: self.nickname || "ユーザー")
+    
     if care_content.save
       Rails.logger.debug "Care content created: #{care_content.inspect}"
+      
+      # 3つの緊急連絡先を作成
+      3.times do
+        EmergencyContact.create(care_content: care_content, phone_number: "", relationship: "")
+      end
+      Rails.logger.debug "Emergency contacts created for care content #{care_content.id}"
     else
       Rails.logger.debug "Care content creation failed: #{care_content.errors.full_messages.join(', ')}"
     end
+  
+    # QRコードを作成
     qr_code = QrCode.create(user: self)
     tmp = generate_qr_code_data
     qr_code.update(qr_code: tmp)
-
+  
     if qr_code.persisted?
       Rails.logger.debug "QR code created: #{qr_code.inspect}"
     else
       Rails.logger.debug "QR code creation failed: #{qr_code.errors.full_messages.join(', ')}"
     end
   end
+  
 
   def generate_qr_code_data
     qr_code_id = self.qr_code&.id

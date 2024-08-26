@@ -7,52 +7,23 @@
       <%= f.text_field :preferred_name, placeholder: "例：たろう" %>
     </div>
 
-    <div class="field">
-      <%= f.label :phone_number, "緊急時につないでほしい連絡先➀" %>
-      <%= f.text_field :phone_number, placeholder: "例：000‐0000‐0000"  %>
-    </div>
+    <% 3.times do |i| %>
+      <div class="field">
+        <%= f.fields_for :emergency_contacts, @care_content.emergency_contacts[i] || @care_content.emergency_contacts.build do |ef| %>
+          <%= ef.label :phone_number, "緊急時につないでほしい連絡先#{i + 1}" %>
+          <%= ef.text_field :phone_number, placeholder: "例：000‐0000‐0000" %>
 
-    <div class="select-wrapper">
-      <select class="select">
-          <option value="" hidden>連絡先➀との関係性</option>
-          <option value="1">親族</option>
-          <option value="2">友人</option>
-          <option value="3">ケアマネ</option>
-          <option value="4">その他</option>
-      </select>
-    </div>
+          <div class="select-wrapper">
+            <%= ef.label :relationship, "連絡先#{i + 1}との関係性" %>
+            <%= ef.select :relationship, options_for_select([['親族', '親族'], ['友人', '友人'], ['ケアマネ', 'ケアマネ'], ['その他', 'その他']], ef.object&.relationship), prompt: '選択してください' %>
+          </div>
 
-    <div class="field">
-      <%= f.label :phone_number, "緊急時につないでほしい連絡先➁" %>
-      <%= f.text_field :phone_number, placeholder: "例：000‐0000‐0000"  %>
-    </div>
+          <%= ef.hidden_field :_destroy %>
+        <% end %>
+      </div>
+    <% end %>
 
-    <div class="select-wrapper">
-      <select class="select">
-          <option value="" hidden>連絡先➁との関係性</option>
-          <option value="1">親族</option>
-          <option value="2">友人</option>
-          <option value="3">ケアマネ</option>
-          <option value="4">その他</option>
-      </select>
-    </div>
 
-    <div class="field">
-      <%= f.label :phone_number, "緊急時につないでほしい連絡先⓷" %>
-      <%= f.text_field :phone_number, placeholder: "例：000‐0000‐0000"  %>
-    </div>
-
-    <div class="select-wrapper">
-      <select class="select">
-          <option value="" hidden>連絡先⓷との関係性</option>
-          <option value="1">親族</option>
-          <option value="2">友人</option>
-          <option value="3">ケアマネ</option>
-          <option value="4">その他</option>
-      </select>
-    </div>
-
- 
     <div class="field">
       <%= f.label :custom_message, "緊急時にお願いしたいこと" %>
       <%= f.text_area :custom_message, placeholder: "例：機械の操作が苦手です。話すときは右側から話しかけてください。"  %>
