@@ -316,3 +316,19 @@ body, h1, p {
 .select-wrapper--disabled::after {
   border-top-color: #EE7800;
 }
+
+
+/* モーダルのスタイル調整 */
+.modal-content {
+  padding: 20px;
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-footer {
+  border-top: none;
+  display: flex;
+  justify-content: space-between;
+}
