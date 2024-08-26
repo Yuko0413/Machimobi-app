@@ -15,7 +15,8 @@
 
           <div class="select-wrapper">
             <%= ef.label :relationship, "連絡先#{i + 1}との関係性" %>
-            <%= ef.select :relationship, options_for_select([['親族', '親族'], ['友人', '友人'], ['ケアマネ', 'ケアマネ'], ['その他', 'その他']], ef.object&.relationship), prompt: '選択してください' %>
+            <%= ef.select :relationship, options_for_select([['親族', '親族'], ['友人', '友人'], ['ケアマネ', 'ケアマネ'], ['その他', 'その他']], ef.object&.relationship), { prompt: '選択してください' }, class: 'select-wrapper-form' %>
+
           </div>
 
           <%= ef.hidden_field :_destroy %>

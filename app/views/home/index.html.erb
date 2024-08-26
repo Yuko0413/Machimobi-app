@@ -6,51 +6,49 @@
     <% end %>
   <% end %>
 
-<div class="qr-code-wrapper">
-  <div><p class="highlight">QRコードを読み込んでください</p></div>
-  <div class="qr-code-container">
-    <div class="qr-code-section">
-      <% if @qr_code.present? %>
-        <%= image_tag qr_code_path(@qr_code, format: :png), class: 'qr-code' %>
-      <% else %>
-        <p>QRコードが登録されていません。</p>
-      <% end %>
-      <!-- <span class="custom-size">読み込んでください</span> -->
-
-    </div>
-    <div class="qr-code-message">
-      <p class="info">➀左のQRコードを<br>読み込む</p>
-      <p class="info">➁お手伝いを<br>お願いします</p>
+  <div class="qr-code-wrapper">
+    <div><p class="highlight">QRコードを読み込んでください</p></div>
+    <div class="qr-code-container">
+      <div class="qr-code-section">
+        <% if @qr_code.present? %>
+          <%= image_tag qr_code_path(@qr_code, format: :png), class: 'qr-code' %>
+        <% else %>
+          <p>QRコードが登録されていません。</p>
+        <% end %>
+      </div>
+      <div class="qr-code-message">
+        <p class="info">➀左のQRコードを<br>読み込む</p>
+        <p class="info">➁お手伝いを<br>お願いします</p>
+      </div>
     </div>
   </div>
-</div>
 
+  <div class="links-section">
+    <%= link_to edit_care_content_path(@care_content), class: "btn btn-primary icon-link" do %>
+      <img src="<%= asset_path('pen2_icon.svg') %>" alt="Edit Icon" class="icon">
+      <span><strong>緊急時の表示内容</strong></span>
+    <% end %>
+    
+    <%= link_to "#", class: "btn btn-primary icon-link", id: "printer-button" do %>
+      <img src="<%= asset_path('print_icon.svg') %>" alt="Print Icon" class="icon">
+      <span><strong>画面印刷</strong></span>
+    <% end %>    
 
-<div class="links-section">
-  <%= link_to edit_care_content_path(@care_content), class: "btn btn-primary icon-link" do %>
-    <img src="<%= asset_path('pen2_icon.svg') %>" alt="Edit Icon" class="icon">
-    <span><strong>緊急時の表示内容</strong></span>
-  <% end %>
+    <%= link_to edit_user_registration_path, class: "btn btn-primary icon-link" do %>
+      <img src="<%= asset_path('account2_icon.svg') %>" alt="Profile Icon" class="icon">
+      <span><strong>アカウント設定</strong></span>
+    <% end %>
+
+    <!-- <% if user_signed_in? %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { confirm: 'ログアウトしますか？' } %>
+      <% end %>
+    </div> -->  
   
-  <%= link_to "#", class: "btn btn-primary icon-link",id: "printer-button" do %>
-    <img src="<%= asset_path('print_icon.svg') %>" alt="Print Icon" class="icon">
-    <span><strong>画面印刷</strong></span>
-  <% end %>
-  
-  <%= link_to "tel:#{@care_content.phone_number}", class: "btn btn-primary icon-link phone-link" do %>
-    <img src="<%= asset_path('phone2_icon.svg') %>" alt="Phone Icon" class="icon">
-    <span><strong>緊急連絡先に電話する</strong></span>
-  <% end %>
-
-  <%= link_to edit_user_registration_path, class: "btn btn-primary icon-link" do %>
-    <img src="<%= asset_path('account2_icon.svg') %>" alt="Profile Icon" class="icon">
-    <span><strong>アカウント設定</strong></span>
-  <% end %>
-
-  <% if user_signed_in? %>
-    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { confirm: 'ログアウトしますか？' } %>
-  <% end %>
-
-
-
 </div>
+<p class="contact-tel"><strong>▼緊急連絡先に電話する▼</strong></p>
+<% @care_content.emergency_contacts.each_with_index do |contact, index| %>
+      <p class="contact-item">
+        <span class="relationship-label"><%= contact.relationship %>:</span>
+        <%= link_to contact.phone_number, "tel:#{contact.phone_number}", class: "phone-number-link" %>
+      </p>
+<% end %>

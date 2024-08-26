@@ -128,13 +128,13 @@ body, h1, p {
   .links-section {
     flex: 1;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2列に設定 */
-    // grid-template-columns: repeat(3, 1fr);
+    // grid-template-columns: repeat(2, 1fr); /* 2列に設定 */
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     padding: 10px;
     place-items: center;
-    // box-sizing: border-box;
-    width: 90%;
+    box-sizing: border-box;
+    // width: 90%;
     margin: 0 auto;
     // margin-top: 15px;    
   }
@@ -170,6 +170,8 @@ body, h1, p {
     max-width: 150px;
     height: auto;
     background: #fcfff4;
+    height: 50px;
+    margin-bottom: 10px;
     background: -webkit-gradient(
       linear,
       left top,
@@ -300,6 +302,20 @@ body, h1, p {
   display: inline-block;
 }
 
+.select-wrapper-form {
+  margin-left: 32px;
+  border: 1px solid #EE7800; /* 枠線の色をオレンジに変更 */
+  border-radius: 0px; /* 角を丸くする */
+  padding: 5px; /* 内側の余白を追加 */
+  background-color: #fff; /* 背景色を白に設定 */
+}
+
+.select-wrapper-form:focus {
+  border-color: #d66900; /* フォーカス時の枠線の色を濃いオレンジに変更 */
+  box-shadow: 0 0 5px rgba(238, 120, 0, 0.5); /* フォーカス時にボックスシャドウを追加 */
+  outline: none; /* デフォルトのアウトラインを消す */
+}
+
 .select-wrapper::after {
   content: '';
   position: absolute;
@@ -315,4 +331,63 @@ body, h1, p {
 
 .select-wrapper--disabled::after {
   border-top-color: #EE7800;
+}
+
+.contact-tel {
+  color: #EE7800;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center; /* 垂直方向の中央揃え */
+  justify-content: center; /* 水平方向の中央揃え */
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  width: 200px;
+  border: 1px solid #EE7800; /* 枠線の色と太さを設定 */
+  border-radius: 10px; /* 丸い枠にするために、角を丸める */
+  background: #fcfff4; /* 背景色を設定 */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#fcfff4),
+    color-stop(40%, #dfe5d7),
+    to(#b3bead)
+  );
+  background: -webkit-linear-gradient(
+    top,
+    #fcfff4 0%,
+    #dfe5d7 40%,
+    #b3bead 100%
+  );
+  background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #f3ebdd 100%);
+  -webkit-box-shadow: inset 5px 30px 20px rgba(255, 255, 255, 0.5),
+    0 6px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 5px 30px 20px rgba(255, 255, 255, 0.5),
+    0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.contact-item:hover {
+  -webkit-box-shadow: inset 15px 30px 40px rgba(255, 255, 255, 0.55),
+    0 3px 7px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 15px 30px 40px rgba(255, 255, 255, 0.55),
+    0 3px 7px rgba(0, 0, 0, 0.2);
+}
+
+.relationship-label {
+  margin-right: 5px; /* ラベルと電話番号の間にスペースを追加 */
+  font-weight: bold; /* ラベルを強調 */
+  color: #EE7800; /* ラベルの色を設定 */
+}
+
+.phone-number-link {
+  color: blue; /* リンクの色を設定 */
+  text-decoration: none; /* リンクの下線を削除 */
+}
+
+.phone-number-link:hover {
+  color: darkblue; /* ホバー時の色を設定 */
+  text-decoration: underline; /* ホバー時に下線を追加 */
 }
