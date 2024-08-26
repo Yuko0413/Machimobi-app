@@ -1,0 +1,15 @@
+<!-- app/views/care_contents/_emergency_contact_fields.html.erb -->
+<div class="nested-fields">
+  <div class="field">
+    <%= f.label :phone_number, "緊急時につないでほしい連絡先" %>
+    <%= f.text_field :phone_number, placeholder: "例：000‐0000‐0000" %>
+  </div>
+
+  <div class="select-wrapper">
+    <%= f.label :relationship, "関係性" %>
+    <%= f.select :relationship, options_for_select([['親族', '親族'], ['友人', '友人'], ['ケアマネ', 'ケアマネ'], ['その他', 'その他']], f.object.relationship), prompt: '選択してください' %>
+  </div>
+
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "削除", '#', class: "remove_fields btn-secondary-home" %>
+</div>
