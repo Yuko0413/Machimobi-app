@@ -7,21 +7,20 @@
       <%= f.text_field :preferred_name, placeholder: "例：たろう" %>
     </div>
 
-    <% 3.times do |i| %>
-      <div class="field">
-        <%= f.fields_for :emergency_contacts, @care_content.emergency_contacts[i] || @care_content.emergency_contacts.build do |ef| %>
-          <%= ef.label :phone_number, "緊急時につないでほしい連絡先#{i + 1}" %>
-          <%= ef.text_field :phone_number, placeholder: "例：000‐0000‐0000" %>
+    <div class="field">
+      <%= f.fields_for :emergency_contacts,  @care_content.emergency_contacts.first || @care_content.emergency_contacts.build do |ef| %>
+        <%= ef.label :phone_number, "緊急時につないでほしい連絡先" %>
+        <%= ef.text_field :phone_number, placeholder: "例：000‐0000‐0000" %>
+    
+        <div class="select-wrapper">
+          <%= ef.label :relationship, "連絡先との関係性" %>
+          <%= ef.select :relationship, options_for_select([['親族', '親族'], ['友人', '友人'], ['ケアマネ', 'ケアマネ'], ['その他', 'その他']], ef.object&.relationship), { prompt: '選択してください' }, class: 'custom-select-class' %>
 
-          <div class="select-wrapper">
-            <%= ef.label :relationship, "連絡先#{i + 1}との関係性" %>
-            <%= ef.select :relationship, options_for_select([['親族', '親族'], ['友人', '友人'], ['ケアマネ', 'ケアマネ'], ['その他', 'その他']], ef.object&.relationship), prompt: '選択してください' %>
-          </div>
-
-          <%= ef.hidden_field :_destroy %>
-        <% end %>
-      </div>
-    <% end %>
+        </div>
+    
+        <%= ef.hidden_field :_destroy %>
+      <% end %>
+    </div>
 
 
     <div class="field">

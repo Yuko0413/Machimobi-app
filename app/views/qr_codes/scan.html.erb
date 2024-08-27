@@ -5,13 +5,14 @@
     <p class="info">呼んでほしい名前: <%= @qr_code.user.care_content.preferred_name %></p>
 
     <% if @qr_code.user.care_content.emergency_contacts.present? %>
-      <p class="info">緊急時の連絡先:</p>
-      <% @qr_code.user.care_content.emergency_contacts.each do |contact| %>
+      <div class="emergency-contact">
+        <p class="info">緊急時の連絡先:</p>
+        <% contact = @qr_code.user.care_content.emergency_contacts.first %>
         <p class="info">
-          <strong>電話番号:</strong> <%= link_to contact.phone_number, "tel:#{contact.phone_number}" %><br>
+          <strong>電話番号:</strong> <%= link_to contact.phone_number, "tel:#{contact.phone_number}", class: "phone-link" %><br>
           <strong>関係性:</strong> <%= contact.relationship %>
         </p>
-      <% end %>
+      </div>
     <% end %>
     
     <p class="info">緊急時にお願いしたいこと:<br> <%= @qr_code.user.care_content.custom_message %></p>

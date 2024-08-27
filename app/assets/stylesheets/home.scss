@@ -332,3 +332,29 @@ body, h1, p {
   display: flex;
   justify-content: space-between;
 }
+
+.custom-select-class {
+  text-decoration: none;
+  margin-left: 30px;
+  border: 1px solid #EE7800;
+
+}
+
+.custom-select-class:focus {
+  border-color: #EE7800; /* フォーカス時の枠線の色を変更 */
+  box-shadow: 0 0 8px rgba(238, 120, 0, 0.75); /* フォーカス時のシャドウを追加 */
+  outline: none; /* デフォルトのアウトラインを削除 */
+}
+
+.select-wrapper-form {
+  border: 2px solid #EE7800; /* 枠線の色をオレンジに変更 */
+  border-radius: 4px; /* 角を丸くする */
+  padding: 5px; /* 内側の余白を追加 */
+  background-color: #fff; /* 背景色を白に設定 */
+}
+
+.select-wrapper-form:focus {
+  border-color: #d66900; /* フォーカス時の枠線の色を濃いオレンジに変更 */
+  box-shadow: 0 0 5px rgba(238, 120, 0, 0.5); /* フォーカス時にボックスシャドウを追加 */
+  outline: none; /* デフォルトのアウトラインを消す */
+}
