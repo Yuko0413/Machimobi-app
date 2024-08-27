@@ -35,11 +35,17 @@ class CareContentsController < ApplicationController
 
   private
 
+  # def set_care_content
+  #   @care_content = current_user.care_content || current_user.build_care_content
+  #   3.times { @care_content.emergency_contacts.build } if @care_content.emergency_contacts.size < 3
+
+  # end
+
   def set_care_content
     @care_content = current_user.care_content || current_user.build_care_content
-    3.times { @care_content.emergency_contacts.build } if @care_content.emergency_contacts.size < 3
-
+    (3 - @care_content.emergency_contacts.reject { |c| c.phone_number.blank? }.size).times { @care_content.emergency_contacts.build }
   end
+  
 
   def care_content_params
     params.require(:care_content).permit(:preferred_name, :custom_message, :message, emergency_contacts_attributes: [:id, :phone_number, :relationship, :_destroy])

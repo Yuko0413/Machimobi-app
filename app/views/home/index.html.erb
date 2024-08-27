@@ -45,10 +45,26 @@
     </div> -->  
   
 </div>
-<p class="contact-tel"><strong>▼緊急連絡先に電話する▼</strong></p>
+
+
+
+<% if @care_content.emergency_contacts.present? %>
+  <p class="contact-tel"><strong>▼緊急連絡先に電話する▼</strong></p>
+  <% @care_content.emergency_contacts.each do |contact| %>
+    <% unless contact.phone_number.blank? %>
+      <p class="contact-item">
+        <span class="relationship-label"><%= contact.relationship %>:</span>
+        <%= link_to contact.phone_number, "tel:#{contact.phone_number}", class: "phone-number-link" %>
+      </p>
+    <% end %>
+  <% end %>
+<% end %>
+
+
+<!-- <p class="contact-tel"><strong>▼緊急連絡先に電話する▼</strong></p>
 <% @care_content.emergency_contacts.each_with_index do |contact, index| %>
       <p class="contact-item">
         <span class="relationship-label"><%= contact.relationship %>:</span>
         <%= link_to contact.phone_number, "tel:#{contact.phone_number}", class: "phone-number-link" %>
       </p>
-<% end %>
+<% end %> -->
