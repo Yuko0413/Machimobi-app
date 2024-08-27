@@ -81,7 +81,7 @@ class User < ApplicationRecord
         EmergencyContact.create(care_content: care_content, phone_number: "", relationship: "")
       end
       Rails.logger.debug "Emergency contacts created for care content #{care_content.id}"
-    else
+      else
       Rails.logger.debug "Care content creation failed: #{care_content.errors.full_messages.join(', ')}"
     end
   
