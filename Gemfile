@@ -72,3 +72,4 @@ gem 'typhoeus'
 gem 'cocoon'
 
 gem 'dotenv-rails', groups: [:development, :test]
+ 
