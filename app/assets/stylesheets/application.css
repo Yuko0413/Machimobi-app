@@ -489,7 +489,9 @@ textarea::-ms-input-placeholder { /* Microsoft Edge */
 }
 
 .google-register-button:hover {
-  background-color: #c23321; /* ホバー時の背景色 */
+  background-color: #f8f9fa; /* ホバー時に背景色を変更 */
+  border-color: #ccc;
+  color: #000;
 }
 
 /* LINEで登録ボタンのスタイル */
