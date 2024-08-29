@@ -311,13 +311,21 @@ Devise.setup do |config|
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
 
-  config.omniauth :google_oauth2, Rails.application.credentials.google[:client_id], Rails.application.credentials.google[:client_secret], skip_jwt: true
+  # config.omniauth :google_oauth2, Rails.application.credentials.google[:client_id], Rails.application.credentials.google[:client_secret], skip_jwt: true
 
   #config.omniauth :google_oauth2, Rails.application.credentials.dig(:google, :client_id), Rails.application.credentials.dig(:google, :client_secret)
 
-  config.omniauth :line, Rails.application.credentials.line[:client_id], Rails.application.credentials.line[:client_secret], skip_jwt: true
+  # config.omniauth :line, Rails.application.credentials.line[:client_id], Rails.application.credentials.line[:client_secret], skip_jwt: true
+
+  # config.scoped_views = true
+
+
+  config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'], skip_jwt: true
+
+  config.omniauth :line, ENV['LINE_CLIENT_ID'], ENV['LINE_CLIENT_SECRET'], skip_jwt: true
 
   config.scoped_views = true
+
 
   
   # config.omniauth :google_oauth2, Rails.application.credentials.dig(:google, :client_id), Rails.application.credentials.dig(:google, :client_secret), {
