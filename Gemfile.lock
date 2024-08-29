@@ -90,6 +90,10 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dotenv (3.1.2)
+    dotenv-rails (3.1.2)
+      dotenv (= 3.1.2)
+      railties (>= 6.1)
     erubi (1.13.0)
     ethon (0.16.0)
       ffi (>= 1.15.0)
@@ -331,6 +335,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   cocoon
   devise (~> 4.9)
+  dotenv-rails
   jbuilder (~> 2.7)
   listen (~> 3.3)
   omniauth-google-oauth2 (~> 1.1)
